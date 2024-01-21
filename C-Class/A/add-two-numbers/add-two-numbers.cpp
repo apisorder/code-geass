@@ -1,4 +1,11 @@
 
+/*
+ *  Programmer:                     Jeff C. Cheng
+ *  Last modified:                  9:54AM 1-21-2024
+ *  Problem:                        2. Add Two Numbers (Medium)
+ *  Reference:                      https://leetcode.com/problems/add-two-numbers/description/
+*/
+
 // 2. Add Two Numbers
 // Solved
 // Medium
@@ -57,6 +64,8 @@
  * };
  */
 
+#include <iostream>
+
 struct ListNode {
     int val;
     ListNode *next;
@@ -70,6 +79,57 @@ class Solution
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) 
     {
-        
+        int carry = 0;
+        ListNode dummyHead(0);
+        ListNode *current = &dummyHead;
+
+        while (carry || l1 || l2)
+        {
+            carry += ( l1? l1->val : 0 ) + ( l2 ? l2->val : 0 );
+            current->next = new ListNode( carry % 10 );
+            current = current->next;
+
+            carry /= 10;
+
+            if (l1)
+            {
+                l1 = l1->next;
+            }
+            if (l2)
+            {
+                l2 = l2->next;
+            }
+        }
+        return dummyHead.next;
     }
 };
+
+int main()
+{
+    // Test Case:
+    // Input: l1 = [2,4,3], l2 = [5,6,4]
+    // Output: [7,0,8]
+    // Explanation: 342 + 465 = 807.
+
+    Solution solution;
+    
+    ListNode l1(2, new ListNode(4, new ListNode(3)));
+    ListNode l2(5, new ListNode(6, new ListNode(4)));
+    ListNode *l1ptr = &l1;
+    ListNode *l2ptr = &l2;
+    
+    ListNode *result;
+    result = solution.addTwoNumbers(l1ptr, l2ptr);
+    
+    int num = 0;
+    int multiplier = 1;
+    while (result != NULL)
+    {
+        num += result->val*multiplier;
+        result = result->next;
+        multiplier *= 10;
+    }
+    std::cout << num << std::endl;
+
+    return 0;
+}  
