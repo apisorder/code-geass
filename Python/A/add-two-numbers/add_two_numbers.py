@@ -1,11 +1,13 @@
 
 '''
  *  Programmer:                     Jeff C. Cheng
- *  Last modified:                  3:54PM 1-3-2024
+ *  Last modified:                  7:15PM 1-23-2024
  *  Problem:                        2. Add Two Numbers (Medium)
  *  Reference:                      https://leetcode.com/problems/add-two-numbers/description/
                                     https://leetcode.com/problems/add-two-numbers/solutions/1340/a-summary-about-how-to-solve-linked-list-problem-c/
  NOTE:
+                                    KNOW HOW LISTNODE IS DEFINED
+                                    ESPECIALL DEF __INIT__ AND DEFAULT VALUES
                                     HOW CARRY IS PROPOGATED W/O BEING SAVED IN NODES                          
 '''
 
@@ -102,3 +104,19 @@ class Solution:
 
 #   return dummy head next
         return dummyHead.next
+  
+solution = Solution()
+
+#   342 + 465 = 807
+l1 = ListNode(2, ListNode(4, ListNode(3)))
+l2 = ListNode(5, ListNode(6, ListNode(4)))
+
+result = solution.addTwoNumbers(l1, l2)
+
+multiplier = 1
+number = 0
+while result:
+    number += result.val*multiplier
+    multiplier *= 10
+    result = result.next
+print( f"Number = {number}")

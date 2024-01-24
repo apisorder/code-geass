@@ -1,5 +1,5 @@
 
-public class HelloWorld
+public class JavaTutorial_1
 {
     //  class variable, accessible to all other varaiables and methods within the class
     static String randomString = "a random string";

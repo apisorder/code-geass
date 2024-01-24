@@ -4,6 +4,9 @@
  *  Last modified:                  8:15PM 1-21-2024
  *  Problem:                        2. Add Two Numbers (Medium)
  *  Reference:                      https://leetcode.com/problems/add-two-numbers/description/
+ *  NOTE:
+ *                                  KNOW HOW LISTNODE IS 
+ *                                  NO DEFAULT VALUE NEEDED (0 OR null)
 */
 
 class ListNode

@@ -4,6 +4,9 @@
  *  Last modified:                  9:54AM 1-21-2024
  *  Problem:                        2. Add Two Numbers (Medium)
  *  Reference:                      https://leetcode.com/problems/add-two-numbers/description/
+ *  NOTE:
+ *                                  KNOW HOW LISTNODE IS DEFINED
+ *                                  KNOW HOW POINTER = (NEW) OBJECTS
 */
 
 // 2. Add Two Numbers
@@ -76,32 +79,32 @@ struct ListNode {
 
 class Solution 
 {
-public:
-    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) 
-    {
-        int carry = 0;
-        ListNode dummyHead(0);
-        ListNode *current = &dummyHead;
-
-        while (carry || l1 || l2)
+    public:
+        ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) 
         {
-            carry += ( l1? l1->val : 0 ) + ( l2 ? l2->val : 0 );
-            current->next = new ListNode( carry % 10 );
-            current = current->next;
+            int carry = 0;
+            ListNode dummyHead(0);
+            ListNode *current = &dummyHead;
 
-            carry /= 10;
+            while (carry || l1 || l2)
+            {
+                carry += ( l1? l1->val : 0 ) + ( l2 ? l2->val : 0 );
+                current->next = new ListNode( carry % 10 );
+                current = current->next;
 
-            if (l1)
-            {
-                l1 = l1->next;
+                carry /= 10;
+
+                if (l1)
+                {
+                    l1 = l1->next;
+                }
+                if (l2)
+                {
+                    l2 = l2->next;
+                }
             }
-            if (l2)
-            {
-                l2 = l2->next;
-            }
+            return dummyHead.next;
         }
-        return dummyHead.next;
-    }
 };
 
 int main()
@@ -113,13 +116,11 @@ int main()
 
     Solution solution;
     
-    ListNode l1(2, new ListNode(4, new ListNode(3)));
-    ListNode l2(5, new ListNode(6, new ListNode(4)));
-    ListNode *l1ptr = &l1;
-    ListNode *l2ptr = &l2;
+    ListNode l1 = ListNode(2, new ListNode(4, new ListNode(3)));
+    ListNode l2 = ListNode(5, new ListNode(6, new ListNode(4)));
     
     ListNode *result;
-    result = solution.addTwoNumbers(l1ptr, l2ptr);
+    result = solution.addTwoNumbers(&l1, &l2);
     
     int num = 0;
     int multiplier = 1;

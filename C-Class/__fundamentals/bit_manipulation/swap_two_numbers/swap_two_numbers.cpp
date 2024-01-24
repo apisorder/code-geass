@@ -2,7 +2,7 @@
 /*
  *  Programmer:                     Jeff C. Cheng
  *  Last modified:                  3:14PM 1-22-2024
- *  Problem:                        2. Swap Two Numbers (Zero)
+ *  Problem:                        Swap Two Numbers (Zero)
 */
 
 #include <iostream>

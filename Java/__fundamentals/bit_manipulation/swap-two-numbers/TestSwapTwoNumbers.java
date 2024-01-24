@@ -5,7 +5,9 @@
  *  Problem:                        Swap Two Numbers (Zero)
  *  Reference:                      https://stackoverflow.com/questions/2393906/java-method-to-swap-primitives/20600020#20600020
  *                                  https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.7.4
-*/
+ *  NOTE:                           
+ *                                  y = swap(x, x=y)
+ */
 
 class Solution
 {
