@@ -6,7 +6,9 @@
  *  Reference:                      https://leetcode.com/problems/add-two-numbers/description/
  *  NOTE:
  *                                  KNOW HOW LISTNODE IS DEFINED
+ *                                  : VAL(0), NEXT(NULLPTR)
  *                                  KNOW HOW POINTER = (NEW) OBJECTS
+ *                                  REMEMBER TO DELETE FOR MEMORY LEAK
 */
 
 // 2. Add Two Numbers
@@ -83,8 +85,10 @@ class Solution
         ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) 
         {
             int carry = 0;
-            ListNode dummyHead(0);
-            ListNode *current = &dummyHead;
+            
+            //  allocate dummyHead on the stack
+            ListNode *dummyHead = new ListNode(0);
+            ListNode *current = dummyHead;
 
             while (carry || l1 || l2)
             {
@@ -103,7 +107,9 @@ class Solution
                     l2 = l2->next;
                 }
             }
-            return dummyHead.next;
+            ListNode *result = dummyHead->next;
+            delete dummyHead;
+            return result;
         }
 };
 

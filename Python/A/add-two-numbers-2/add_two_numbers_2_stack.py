@@ -119,18 +119,18 @@ class Solution:
 #   instead of head = ListNode( carry, dummyHead )
 #
 #   set sum to dummy head value
-            sum = dummyHead.val
+            sum1 = dummyHead.val
 
 #   pop stack 1 and add value to sum
 #   pop stack 2 and add value to sum
             if stack1:
-                sum += stack1.pop()
+                sum1 += stack1.pop()
             if stack2:
-                sum += stack2.pop()
+                sum1 += stack2.pop()
 
 #   calculate carry
-            if sum >= 10:
-                sum %= 10
+            if sum1 >= 10:
+                sum1 %= 10
                 carry = 1
             else:
                 carry = 0
@@ -138,7 +138,7 @@ class Solution:
 #   set dummy head to sum   
 #   point head to carry and next to dummy head
 #   point dummy head to head (create the result list in reverse)  
-            dummyHead.val = sum
+            dummyHead.val = sum1
             head = ListNode( carry, dummyHead )
             dummyHead = head
             
@@ -148,4 +148,18 @@ class Solution:
             return dummyHead.next
         else:
             return dummyHead
-        
+
+solution = Solution()
+
+#   243 + 564 = 807
+l1 = ListNode(2, ListNode(4, ListNode(3)))
+l2 = ListNode(5, ListNode(6, ListNode(4)))
+
+result = solution.addTwoNumbers(l1, l2)
+
+number = 0
+while result:
+    number = number*10 + result.val
+    result = result.next
+
+print(f"Number = {number}")

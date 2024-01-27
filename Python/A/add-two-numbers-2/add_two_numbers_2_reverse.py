@@ -112,6 +112,7 @@ class Solution:
 #   
 #   reverse linked list 1
 #   reverse linked list 2
+        #   NESTED FUNCTION SO PASS SELF IN
         l1 = reverseList( self, l1 )
         l2 = reverseList( self, l2 )
 
@@ -125,29 +126,44 @@ class Solution:
         while l1 or l2 or carry:
 
 #   set sum to carry
-            sum = carry
+            sum1 = carry
 
 #   add linked list 1 node value to sum & advance list
             if l1:
-                sum += l1.val
+                sum1 += l1.val
                 l1 = l1.next
 #   add linked list 2 node value to sum & advance list
             if l2:
-                sum += l2.val
+                sum1 += l2.val
                 l2 = l2.next
 
 #   calculate carry
-            if sum >= 10:
-                sum %= 10
+            if sum1 >= 10:
+                sum1 %= 10
                 carry = 1
             else:
                 carry = 0
 
 #   add node with sum value to current
-            current.next = ListNode( sum )
+            current.next = ListNode( sum1 )
 #   advance current
             current = current.next
 
 #   reverse dummy head next
 #   return the result    
         return reverseList( self, dummyHead.next )
+    
+solution = Solution()
+
+#   243 + 564 = 807
+l1 = ListNode(2, ListNode(4, ListNode(3)))
+l2 = ListNode(5, ListNode(6, ListNode(4)))
+
+result = solution.addTwoNumbers(l1, l2)
+
+# result = 8->0->7
+number = 0
+while result:
+    number = number*10 + result.val
+    result = result.next
+print(f'Number = {number}')

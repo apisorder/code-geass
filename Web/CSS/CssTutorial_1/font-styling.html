@@ -4,7 +4,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style type="text/css">
+
+        <link type="text/css" rel="stylesheet" href="font-styling.css">
+
+        <!-- <style type="text/css">
             body {
                 color: green
             }
@@ -14,18 +17,28 @@
             h1, h2, em, b {
                 font-family: 'Times New Roman', Times, serif;
             }
-        </style>
+        </style> -->
         <title>Font Styling</title>
     </head>
     <body>
         Body Text
-        <p>But paragraph has been overwritten, hence cascading<br />
+        <p>But paragraph has been overwritten, hence cascading< / />
             <i>This is italic text</i><br />
             This is <h1>h1</h1><br />
             why is this green? (as soon as it sees a block statement, it ceases to work)<h2>h2</h2><br />
             block statements will force a newline; inline statements do not.
             <br />
             Block statements = blockquote, div, dl, form, h tags, hr, ol, p, table, ul, li
+        
+            <br /><br /><br /><br /><br /><br />
+            Just because we define a rule in a paragraph tag, <br />
+            that rule does not extend to any elements or any tags <br />
+            that are contained within that paragraph tag<br />
+            if they are a block element.<br />
+            <br /><br /><br /><br /><br /><br />
+            So cascading works to a certain extent, <br />
+            right up until the point where it hits a block element <br />
+            and it ceases to work.<br />
         </p>
     </body>
 </html>

@@ -7,7 +7,7 @@
                                     https://leetcode.com/problems/add-two-numbers/solutions/1340/a-summary-about-how-to-solve-linked-list-problem-c/
  NOTE:
                                     KNOW HOW LISTNODE IS DEFINED
-                                    ESPECIALL DEF __INIT__ AND DEFAULT VALUES
+                                    ESPECIALL DEF __INIT__:  SELF && DEFAULT VALUES
                                     HOW CARRY IS PROPOGATED W/O BEING SAVED IN NODES                          
 '''
 
@@ -80,31 +80,32 @@ class Solution:
         carry = 0
         while l1 or l2 or carry:
 #   set sum to carry
-            sum = carry
+            sum1 = carry
 
 #   add linked list 1 node value to sum & advance list
             if l1:
-                sum += l1.val
+                sum1 += l1.val
                 l1 = l1.next
 #   add linked list 2 node value to sum & advance list
             if l2:
-                sum += l2.val
+                sum1 += l2.val
                 l2 = l2.next
 
 #   determine carry value
-            if sum >= 10:
-                sum %= 10
+            if sum1 >= 10:
+                sum1 %= 10
                 carry = 1
             else:
                 carry = 0
 
 #   add node value with sum to current & advance list
-            current.next = ListNode( sum )
+            current.next = ListNode( sum1 )
             current = current.next
 
 #   return dummy head next
         return dummyHead.next
-  
+
+#   REMEMBER TO CALL CONSTRUCTOR  
 solution = Solution()
 
 #   342 + 465 = 807

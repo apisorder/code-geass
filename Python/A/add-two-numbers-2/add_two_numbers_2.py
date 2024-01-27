@@ -1,5 +1,4 @@
 
-
 '''
  *  Programmer:                     Jeff C. Cheng
  *  Last modified:                  10:33PM 1-3-2024
@@ -120,23 +119,23 @@ class Solution:
 #   while length of list 1 and length of list 2 are both > 0
 #   set sum to 0
         while l1_length and l2_length:
-            sum = 0
+            sum1 = 0
 #   if length of list 1 >= list 2
 #   add its value to sum & advance list & decrement lenght of list 1
             if l1_length >= l2_length:
-                sum += l1.val
+                sum1 += l1.val
                 l1 = l1.next
                 l1_length -= 1
 #   if length of list 1 < list 2
 #   add its value to sum & advance list & decrement lenght of list 2
             if l1_length < l2_length:
-                sum += l2.val
+                sum1 += l2.val
                 l2 = l2.next
                 l2_length -= 1
 
 #   set head value to sum and next to dummy head
 #   point dummy head to head
-            head = ListNode( sum, dummyHead )
+            head = ListNode( sum1, dummyHead )
             dummyHead = head
 
 #   now second pass
@@ -155,18 +154,18 @@ class Solution:
 #
 #   NOTE:   DUMMY HEAD POINTS TO NOTHING IN THE BEGINNING
 #   SO DUMMYHEAD.VAL WOULD NOT WORK
-            sum = carry + current.val 
+            sum1 = carry + current.val 
 
 #   calculate carry
-            if sum >= 10:
-                sum %= 10
+            if sum1 >= 10:
+                sum1 %= 10
                 carry = 1
             else:
                 carry = 0
 
 #   set head to point to sum with next to dummy head
 #   set dummy head to head
-            head = ListNode( sum, dummyHead )
+            head = ListNode( sum1, dummyHead )
             dummyHead = head
 #   advance list
             current = current.next
@@ -176,3 +175,18 @@ class Solution:
             return dummyHead.next
         else:
             return dummyHead
+        
+solution = Solution()
+
+#   243 + 564 = 807
+l1 = ListNode(2, ListNode(4, ListNode(3)))
+l2 = ListNode(5, ListNode(6, ListNode(4)))
+
+result = solution.addTwoNumbers(l1, l2)
+
+number = 0
+while result:
+    number = number*10 + result.val
+    result = result.next
+
+print(f"Number = {number}")
