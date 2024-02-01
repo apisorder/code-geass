@@ -7,20 +7,23 @@
 
 let swapTwoNumbers = (a, b) =>
 {
+    //  swapping a and b
     [a, b] = [b, a]
+    //  return the list
     return [a, b]
 }
 
-x = 11
-y = 22
+let x = 11
+let y = 22
 
 console.log("Values before the function call")
 console.log("x =", x)
 console.log("y =", y)
 
-result = swapTwoNumbers(x, y)
-
+let result = swapTwoNumbers(x, y)
 console.log("Values after the function call")
+
+//  assign each of the list element to a and b
 x = result[0]
 y = result[1]
 delete result

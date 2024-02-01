@@ -28,12 +28,13 @@ function ListNode(val, next) {
     this.next = (next===undefined ? null : next)
 }
 
-var addTwoNumbers = function(l1, l2) 
+let addTwoNumbers = function(l1, l2) 
 {
-    dummyHead = new ListNode(0);
-    current = dummyHead;
+    let dummyHead = new ListNode(0);
+    let current = dummyHead;
 
-    carry = 0;
+    let carry = 0;
+    let sum = 0;
 
     while (l1 !== null || l2 !== null || carry == 1)
     {
@@ -70,8 +71,8 @@ var addTwoNumbers = function(l1, l2)
 // Output: [7,0,8]
 // Explanation: 342 + 465 = 807.
 
-l1 = new ListNode(2, new ListNode(4, new ListNode(3))); 
-l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
+let l1 = new ListNode(2, new ListNode(4, new ListNode(3))); 
+let l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
 
 let result = addTwoNumbers(l1, l2);
 

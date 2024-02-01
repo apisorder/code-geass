@@ -51,9 +51,12 @@ public class JavaTutorial_2
 			System.out.println(numberEntered + " * " + numberEntered + " = " + numEnteredTimesSelf);
 			
 			// Without the cast the value wouldn't consider fractions
-			double numEnteredDivide2 = (double)numberEntered / 2; 
-			System.out.println(numberEntered + " / 2 " + " = " + numEnteredDivide2);
+			double numEnteredDivide2 = numberEntered / 2; 
+            System.out.println(numberEntered + " / 2 " + " = " + numEnteredDivide2);
 			
+            numEnteredDivide2 = (double)numberEntered / 2;
+			System.out.println(numberEntered + " / 2 " + " = " + numEnteredDivide2 + " with casting on the result");
+
 			// % Modulus returns the remainder of a division
 			int numEnteredRemainder = numberEntered % 2;
 			System.out.println(numberEntered + " % 2 " + " = " + numEnteredRemainder);
@@ -81,22 +84,24 @@ public class JavaTutorial_2
 			
 			// Rounds the number provided up
 			int numCeiling = (int) Math.ceil(5.23);
-			System.out.println("Ceiling: " + numCeiling);
+			System.out.println("Ceiling: " + numCeiling + " casting to int required!");
 			
 			// Rounds the number provided down
 			int numFloor = (int) Math.floor(5.23);
-			System.out.println("Floor: " + numFloor);
+			System.out.println("Floor: " + numFloor + " casting to int required!");
 			
 			// Rounds the number based on the fraction
 			int numRound = (int) Math.round(5.23);
-			System.out.println("Rounded: " + numRound);
+			System.out.println("Rounded: " + numRound + " casting to int required!");
 			
 			// Generates random numbers between 0 to 9
 			int randomNumber = (int) (Math.random() * 10); 
 			System.out.println("A random number " + randomNumber);
 			
 		// If the above condition is false, the code following else is executed	
-		} else {
+		} 
+        else 
+        {
 			System.out.println("Sorry you must enter an integer");
 		}
 		

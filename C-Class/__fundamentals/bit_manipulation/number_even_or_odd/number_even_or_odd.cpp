@@ -3,7 +3,7 @@
  *  Programmer:                     Jeff C. Cheng
  *  Last modified:                  3:15PM 1-22-2024
  *  Problem:                        Determine Number Is Even Or Odd (Zero)
-*/
+ */
 
 #include <iostream>
 #include <string>

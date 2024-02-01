@@ -76,10 +76,10 @@ function ListNode(val, next)
     this.next = (next === undefined) ? null : next;
 }
 
-function listToStack(l)
+let listToStack = (l) =>
 {
     //  JavaScript arrays are performant as a stack
-    stack = Array();
+    let stack = Array();
 
     while (l)
     {
@@ -91,13 +91,14 @@ function listToStack(l)
 
 var addTwoNumbers = function(l1, l2) 
 {
-    stack1 = listToStack(l1);    
-    stack2 = listToStack(l2);
+    let stack1 = listToStack(l1);    
+    let stack2 = listToStack(l2);
 
-    dummyHead = new ListNode(0);
+    let dummyHead = new ListNode(0);
 
-    sum = 0;
-    carry = 0;
+    let sum = 0;
+    let carry = 0;
+    let head;
 
     while (stack1.length != 0 || stack2.length != 0)
     {
@@ -142,8 +143,8 @@ var addTwoNumbers = function(l1, l2)
 // Output: [7,0,8]
 // Explanation: 342 + 465 = 807.
 
-l1 = new ListNode(2, new ListNode(4, new ListNode(3))); 
-l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
+let l1 = new ListNode(2, new ListNode(4, new ListNode(3))); 
+let l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
 
 let result = addTwoNumbers(l1, l2);
 

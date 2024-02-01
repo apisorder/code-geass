@@ -36,21 +36,21 @@ int main() {
     // 5 miles equals 8.0467 kilometers
 
     // Create needed variables
-    std::string numOfMilesString;
-    double numOfMiles, numofKilometers;
+    std::string sNumOfMilesString;
+    double dNumOfMiles, dNumofKilometers;
     
     // Ask user to input miles and store string input
     std::cout << "Enter the number of miles to convert : ";
-    getline(std::cin, numOfMilesString);
+    getline(std::cin, sNumOfMilesString);
 
     // Convert from string to double
-    numOfMiles = std::stod(numOfMilesString);
+    dNumOfMiles = std::stod(sNumOfMilesString);
 
     // Convert from miles to km
-    numofKilometers = numOfMiles * 1.60934;
+    dNumofKilometers = dNumOfMiles * 1.60934;
     
     // Output the results
-    printf("%.1f miles equals %.4f kilometers\n", numOfMiles, numofKilometers);
+    printf("%.1f miles equals %.4f kilometers\n", dNumOfMiles, dNumofKilometers);
 
     return 0;
 }

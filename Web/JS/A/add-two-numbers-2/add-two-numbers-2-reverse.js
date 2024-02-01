@@ -76,9 +76,10 @@ function ListNode(val, next)
     this.next = (next === undefined ? null : next);
 }
 
-var reverseList = (l) =>
+let reverseList = (l) =>
 {
-    prev = null;
+    let prev = null;
+    let nexter;
 
     while (l)
     {
@@ -90,15 +91,17 @@ var reverseList = (l) =>
     return prev;
 }
 
-var addTwoNumbers = function(l1, l2) 
+let addTwoNumbers = function(l1, l2) 
 {
-    dummyHead = new ListNode();
-    current = dummyHead;
+    let dummyHead = new ListNode();
+    let current = dummyHead;
     
-    carry = 0;
+    let carry = 0;
 
     l1 = reverseList(l1);
     l2 = reverseList(l2);
+
+    let sum = 0;
 
     while (l1 || l2 || carry)
     {
@@ -136,8 +139,8 @@ var addTwoNumbers = function(l1, l2)
 // Output: [8,0,7]
 // Explanation: 342 + 465 = 807.
 
-l1 = new ListNode(3, new ListNode(4, new ListNode(2))); 
-l2 = new ListNode(4, new ListNode(6, new ListNode(5)));
+let l1 = new ListNode(3, new ListNode(4, new ListNode(2))); 
+let l2 = new ListNode(4, new ListNode(6, new ListNode(5)));
 
 let result = addTwoNumbers(l1, l2);
 
