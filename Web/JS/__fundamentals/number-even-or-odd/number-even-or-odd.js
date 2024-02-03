@@ -1,12 +1,19 @@
 
 //
 //  *  Programmer:                     Jeff C. Cheng
-//  *  Last modified:                  8:21PM 1-22-2024
+//  *  Last modified:                  01:22PM 02-02-2024
 //  *  Problem:                        Determine Number Is Even Or Odd (Zero)
+// @param {Integer} number
+// @return {Integer}
 //
 
 let numberEvenOrOdd = ( number ) =>
 {
+
+//********************************************************************************************************************
+//  Step 1: since all even numbers have only 1 set bit, and it's never at bit 0, AND the number with 1 = 0 
+//********************************************************************************************************************
+    
     if ((number & 1) == 0)
     {
         return "even"

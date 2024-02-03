@@ -1,14 +1,22 @@
 
 /*
  *  Programmer:                     Jeff C. Cheng
- *  Last modified:                  11:11PM 1-29-2024
+ *  Last modified:                  09:22PM 02-01-2024
  *  Problem:                        Clear Kth Bit (Zero)
+ *  @param {integer} number
+ *  @param {integer} kth_bit
+ *  @return {integer}
  */
 
 class Solution
 {
     public int clearKthBit(int num, int kth_bit)
     {
+
+//********************************************************************************************************************
+//  Step 1: AND the number with 0 LEFT-SHIFTED k bits (shift 1 then negate that) 
+//********************************************************************************************************************
+
         return (num & (~(1 << kth_bit)));
     }
 };

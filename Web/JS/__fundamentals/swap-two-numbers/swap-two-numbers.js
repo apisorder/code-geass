@@ -1,13 +1,23 @@
 
 //
 //  *  Programmer:                     Jeff C. Cheng
-//  *  Last modified:                  8:22PM 1-22-2024
+//  *  Last modified:                  03:42PM 02-02-2024
 //  *  Problem:                        Swap Two Numbers (Zero)
 //  *  Reference:                      https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+// @param {Integer} a
+// @param {Integer} b
+// @return {Array of Integers}
+//
 
 let swapTwoNumbers = (a, b) =>
 {
+
     //  swapping a and b
+
+//********************************************************************************************************************
+//  Step 1: swapping values of a and b using destructuring assignment
+//********************************************************************************************************************
+
     [a, b] = [b, a]
     //  return the list
     return [a, b]

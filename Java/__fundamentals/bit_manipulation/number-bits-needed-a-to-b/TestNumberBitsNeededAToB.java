@@ -1,17 +1,29 @@
 
 /*
  *  Programmer:                     Jeff C. Cheng
- *  Last modified:                  10:03PM 1-31-2024
+ *  Last modified:                  08:28AM 02-02-2024
  *  Problem:                        Number Of Bits Needed A To B (Zero)
+ * @param {Integer} num1
+ * @param {Integer} num1
+ * @return {Integer}
  */
 
 class Solution
 {
 public int NumberBitsNeededAToB(int num1, int num2)
     {
+
+//********************************************************************************************************************
+//  Step 1: XOR the two numbers to get a number of their differences 
+//********************************************************************************************************************
+        
         int result = num1 ^ num2;
         int numberOfBitsNeeded = 0;
 
+//********************************************************************************************************************
+//  Step 2: calculate the number of bits where the two numbers are different
+//********************************************************************************************************************
+        
         while (result != 0)
         {
             numberOfBitsNeeded += (result & 1);

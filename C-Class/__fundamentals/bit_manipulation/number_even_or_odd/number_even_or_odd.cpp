@@ -1,8 +1,10 @@
 
 /*
  *  Programmer:                     Jeff C. Cheng
- *  Last modified:                  3:15PM 1-22-2024
+ *  Last modified:                  08:18AM 02-01-2024
  *  Problem:                        Determine Number Is Even Or Odd (Zero)
+ * @param {Integer} number
+ * @return {String}
  */
 
 #include <iostream>
@@ -13,6 +15,11 @@ class Solution
     public:
         std::string numberEvenOrOdd(int number)
         {
+
+//********************************************************************************************************************
+//  Step 1: since a even number will never have bit 0 set, AND the number with 1 will always be 0
+//********************************************************************************************************************
+
             if ((number & 1) == 0)
             {
                 return "even";

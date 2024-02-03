@@ -1,12 +1,21 @@
 
 '''
  *  Programmer:                     Jeff C. Cheng
- *  Last modified:                  11:15PM 1-31-2024
+ *  Last modified:                  03:35PM 02-02-2024
  *  Problem:                        Set Kth Bit (Zero)
+ * @param {Solution} self
+ * @param {Integer} number
+ * @param {Integer} kth_bit
+ * @return {Integer]}
 '''
 
 class Solution:
     def set_kth_bit(self, number, kth_bit):
+
+#********************************************************************************************************************
+#  Step 1: OR the number with 1 LEFT-SHIFTED k bits will always set that bit in the number
+#********************************************************************************************************************
+
         return (number | (1 << kth_bit))
     
 solution = Solution

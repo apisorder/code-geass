@@ -1,13 +1,22 @@
 
 '''
  *  Programmer:                     Jeff C. Cheng
- *  Last modified:                  11:13PM 1-31-2024
+ *  Last modified:                  09:21PM 02-01-2024
  *  Problem:                        Clear Kth Bit (Zero)
+ *  @param {Solution} self
+ *  @param {integer} number
+ *  @param {integer} kth_bit
+ *  @return {integer}
 '''
 
 class Solution:
     def clear_kth_bit(self, number, kth_bit):
         #   remember to negate it
+
+#********************************************************************************************************************
+#  Step 1: AND the number with 0 LEFT-SHIFTED k bits (shift 1 then negate that) 
+#********************************************************************************************************************
+
         return (number & (~(1 << kth_bit)))
     
 solution = Solution

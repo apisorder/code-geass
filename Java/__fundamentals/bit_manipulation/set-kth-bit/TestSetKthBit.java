@@ -2,14 +2,22 @@
 
 /*
  *  Programmer:                     Jeff C. Cheng
- *  Last modified:                  7:37PM 1-31-2024
+ *  Last modified:                  03:40PM 02-02-2024
  *  Problem:                        Set Kth Bit (Zero)
+ *  @param {Integer} num
+ *  @param {Integer} kth_bit
+ *  @return {Integer}
  */
 
  class Solution
  {
      public int setKthBit(int num, int kth_bit)
      {
+
+//********************************************************************************************************************
+//  Step 1: OR the number with 1 LEFT-SHIFTED k bits will always set that bit in the number
+//********************************************************************************************************************
+
          return (num | (1 << kth_bit));
      }
  };

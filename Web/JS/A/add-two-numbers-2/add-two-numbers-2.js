@@ -9,6 +9,9 @@
 //                                     KNOW HOW LISTNODE IS DEFINED, ESPECIALLY ?: PART
 //                                     HOW CARRY IS PROPOGATED W/O BEING SAVED IN NODES                          
 //                                     DUMMYHEAD = NEW LISTNODE()
+// *@param {ListNode} l1
+// *@param {ListNode} l2
+// *@return {ListNode}
 //
 
 // 445. Add Two Numbers II
@@ -57,25 +60,15 @@
 // Acceptance Rate
 // 61.1%
 
-/**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-/**
- * @param {ListNode} l1
- * @param {ListNode} l2
- * @return {ListNode}
- */
-
 function ListNode(val, next)
 {
     this.val = (val === undefined ? 0: val);
     this.next = (next === undefined ? null: next);
 }
 
+// @param {ListNode} l
+// @return {Integer}
+//
 let listLength = (l) =>
 {
     let length = 0;
@@ -94,13 +87,24 @@ let addTwoNumbers = (l1, l2) =>
 
     let l1_length = listLength(l1);
     let l2_length = listLength(l2);
+
     let sum = 0;
-    let head;
     let carry = 0;
+
+    let head;
+
+//  dummy head -> node from the longer/equal-length list -> ...
+//  head -> (sum, dummy head)
+//  dummy head -> head
+//  sum = 0
+//********************************************************************************************************************
+//  Step 7: while either list still remains; list length > 0
+//********************************************************************************************************************
 
     while ((l1_length > 0) && (l2_length > 0))
     {
         sum = 0;
+
         if (l1_length >= l2_length)
         {
             sum += l1.val;
@@ -121,7 +125,15 @@ let addTwoNumbers = (l1, l2) =>
     current = dummyHead;
     dummyHead = null;
 
-    carry = 0; 
+    //  the last current node will contain the value of 0, which will handle any last carry
+    //  i.e. if the last two nodes both contain the value of 9
+    //  current->val = 18
+    //  carry = 0
+    //  sum = 18
+    //  current->val = 0
+    //  carry = 1
+    //  sum = 1
+    //  Number = 18 
     while (current != null)
     {
         sum = current.val + carry;
@@ -138,6 +150,7 @@ let addTwoNumbers = (l1, l2) =>
 
         head = new ListNode(sum, dummyHead);
         dummyHead = head;
+        
         current = current.next;
     }
 

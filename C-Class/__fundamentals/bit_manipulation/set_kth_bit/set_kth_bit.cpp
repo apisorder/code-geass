@@ -1,8 +1,11 @@
 
 /*
  *  Programmer:                     Jeff C. Cheng
- *  Last modified:                  9:52PM 1-27-2024
+ *  Last modified:                  08:14AM 02-01-2024
  *  Problem:                        Set Kth Bit (Zero)
+ *  @param {Pointer to Integer} num
+ *  @param {Integer} kth_bit
+ *  @return {Integer}
  */
 
 #include <iostream>
@@ -12,6 +15,11 @@ class Solution
     public:
         int set_kth_bit(int *num, int kth_bit)
         {
+
+//********************************************************************************************************************
+//  Step 1: OR the number with 1 LEFT-SHIFTED k bits will always set that bit in the number
+//********************************************************************************************************************
+
             return (*num | (1 << kth_bit));
         }
 };

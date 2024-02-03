@@ -1,7 +1,7 @@
 
 //
 //  *  Programmer:                     Jeff C. Cheng
-//  *  Last modified:                  11:58AM 1-26-2024
+//  *  Last modified:                  06:25PM 02-01-2024
 //  *  Problem:                        445. Add Two Numbers II (Medium)
 //  *  Reference:                      https://leetcode.com/problems/add-two-numbers-ii/description/
 //  NOTE:                              
@@ -17,6 +17,9 @@
 
 //                                     head = ListNode( sum, dummyHead )
 //                                     dummyHead = head
+// @param {Pointer to ListNode} l1 
+// @param {Pointer to ListNode} l2
+// @return {Pointer to ListNode}
 //
 
 // 445. Add Two Numbers II
@@ -67,6 +70,10 @@
 
 #include <iostream>
 
+//********************************************************************************************************************
+//  Step 1: define node
+//********************************************************************************************************************
+
 struct ListNode
 {
     int val;
@@ -80,53 +87,134 @@ struct ListNode
 class Solution
 {
     public:
+
+//********************************************************************************************************************
+//  Step 2: define helper function to calculate list length
+//********************************************************************************************************************
+
+        // @param {Pointer to ListNode}
+        // @return {Integer}
         int listLength(ListNode *l)
         {
             int length = 0;
 
             while (l)
             {
+
+//********************************************************************************************************************
+//  Step 3: calculate the length of the list for each list node; advance the list
+//********************************************************************************************************************
+
                 length += 1;
                 l = l->next;
             }
+
+//********************************************************************************************************************
+//  Step 4: return the result
+//********************************************************************************************************************
+
             return length;
         }
 
         ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
         {
+
+//********************************************************************************************************************
+//  Step 5: create dummy head for the new list
+//********************************************************************************************************************
+
+            ListNode *dummyHead = new ListNode(0);
+            ListNode *head;
+            ListNode *current;
+
+//********************************************************************************************************************
+//  Step 6: calculate list length for both lists
+//********************************************************************************************************************
+
             int l1_length = listLength(l1);
             int l2_length = listLength(l2);
 
-            ListNode *dummyHead = new ListNode(0);
-
             int sum = 0;
+
+//  dummy head -> node from the longer/equal-length list -> ...
+//  head -> (sum, dummy head)
+//  dummy head -> head
+//  sum = 0
+//********************************************************************************************************************
+//  Step 7: while either list still remains; list length > 0
+//********************************************************************************************************************
 
             while ((l1_length > 0) && (l2_length > 0))
             {
                 sum = 0;
+
+//********************************************************************************************************************
+//  Step 8: if list 1 is longer, add node value to the sum; advance the list; decrement list length
+//********************************************************************************************************************
+
                 if (l1_length >= l2_length)
                 {
                     sum += l1->val;
                     l1 = l1->next;
                     l1_length -= 1;
                 }
+
+//********************************************************************************************************************
+//  Step 9: however, if list 2 is longer, add node value to the sum; advance the list; decrement list length 
+//********************************************************************************************************************
+
                 if (l1_length < l2_length)
                 {
                     sum += l2->val;
                     l2 = l2->next;
                     l2_length -= 1;
                 }
-                ListNode *head = new ListNode(sum, dummyHead);
+
+//********************************************************************************************************************
+//  Step 10:    head contains sum, and points to dummy head; then point dummy head to head; grow list in reverse
+//********************************************************************************************************************
+
+                head = new ListNode(sum, dummyHead);
                 dummyHead = head;
             }       
 
-            ListNode *current = dummyHead;
+//********************************************************************************************************************
+//  Step 11:    current to point to dummyHead; point dummy head to point to the new list, i.e. nullptr
+//********************************************************************************************************************
+
+            current = dummyHead;
             dummyHead = nullptr;
 
             int carry = 0;
+
+//********************************************************************************************************************
+//  Step 12:    while the list remains
+//********************************************************************************************************************
+
+            //  the last current node will contain the value of 0, which will handle any last carry
+            //  i.e. if the last two nodes both contain the value of 9
+            //  current->val = 18
+            //  carry = 0
+            //  sum = 18
+            //  current->val = 0
+            //  carry = 1
+            //  sum = 1
+            //  Number = 18 
             while (current != nullptr)
             {
+
+//********************************************************************************************************************
+//  Step 13:    add both node value and carry to the sum
+//********************************************************************************************************************
+
                 sum = current->val + carry;
+                // std::cout << "current->val = " << current->val << std::endl;
+                // std::cout << "carry = " << carry << std::endl;  
+                // std::cout << "sum = " << sum << std::endl;
+
+//********************************************************************************************************************
+//  Step 14:    calculate node value and carry
+//********************************************************************************************************************
 
                 if (sum >= 10)
                 {
@@ -138,12 +226,31 @@ class Solution
                     carry = 0;
                 }
 
-                ListNode *head = new ListNode(sum, dummyHead);
+//********************************************************************************************************************
+//  Step 15:    head contains sum, and points to dummy head; then point dummy head to head; grow list in reverse
+//********************************************************************************************************************
+
+                head = new ListNode(sum, dummyHead);
                 dummyHead = head;
+
+//********************************************************************************************************************
+//  Step 16:    advance list
+//********************************************************************************************************************
+
                 current = current->next;
             }
+
+//********************************************************************************************************************
+//  Step 17:    return the result
+//********************************************************************************************************************
+
             if (dummyHead->val == 0)
             {
+
+//********************************************************************************************************************
+//  Step 18:    prevent memory leak, if needed
+//********************************************************************************************************************
+
                 ListNode *result = dummyHead->next;
                 delete dummyHead;
                 return result;
@@ -159,18 +266,20 @@ int main()
 {
     Solution solution;
 
-//  not ListNode *l1
-//  not ListNode *l2
-    ListNode l1 = ListNode(3, new ListNode(4, new ListNode(2)));
-    ListNode l2 = ListNode(4, new ListNode(6, new ListNode(5)));
+    // ListNode *l1 = new ListNode(3, new ListNode(4, new ListNode(2)));
+    // ListNode *l2 = new ListNode(4, new ListNode(6, new ListNode(5)));
+
+    ListNode *l1 = new ListNode(9);
+    ListNode *l2 = new ListNode(9);
 
     ListNode *result;
 
-    result = solution.addTwoNumbers(&l1, &l2);
+    result = solution.addTwoNumbers(l1, l2);
 
     int number = 0;
     while (result != nullptr)
     {
+        //  advance number one significant digit to the left before adding the next node value
         number = number*10 + result->val;
         result = result->next;
     } 

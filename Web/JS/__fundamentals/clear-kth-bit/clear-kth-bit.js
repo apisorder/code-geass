@@ -1,12 +1,20 @@
 
 //
 //  *  Programmer:                     Jeff C. Cheng
-//  *  Last modified:                  11:27PM 1-31-2024
+//  *  Last modified:                  09:21PM 02-01-2024
 //  *  Problem:                        Clear Kth Bit (Zero)
+//  @param {integer} number
+//  @param {integer} kth bit
+//  @return {integer}
 //
 
 let clearKthBit = (number, kthBit) =>
 {
+
+//********************************************************************************************************************
+//  Step 1: AND the number with 0 LEFT-SHIFTED k bits (shift 1 then negate that) 
+//********************************************************************************************************************
+
     return (number & (~(1 << kthBit)));
 }
 

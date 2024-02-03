@@ -1,12 +1,20 @@
 
 //
 //  *  Programmer:                     Jeff C. Cheng
-//  *  Last modified:                  11:25PM 1-31-2024
+//  *  Last modified:                  02:28PM 02-02-2024
 //  *  Problem:                        Set Kth Bit (Zero)
+// @param {Integer} number
+// @param {Integer} kthBit
+// @return {Integer}
 //
 
 let setKthBit = (number, kthBit) =>
 {
+
+//********************************************************************************************************************
+//  Step 1: LEFT-SHIFT 1 k bits and OR it with the number will always turn kth bit on in the number
+//********************************************************************************************************************
+    
     return (number | (1 << kthBit));
 }
 

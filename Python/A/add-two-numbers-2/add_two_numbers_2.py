@@ -17,6 +17,9 @@
 
                                     head = ListNode( sum, dummyHead )
                                     dummyHead = head
+ @param {ListNode} l1
+ @param {ListNode} l2
+ @return {ListNode}                                     
 '''
 
 # 445. Add Two Numbers II
@@ -65,6 +68,10 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+
+#********************************************************************************************************************
+#  Step 1: define node
+#********************************************************************************************************************
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -118,6 +125,15 @@ class Solution:
 #
 #   while length of list 1 and length of list 2 are both > 0
 #   set sum to 0
+        
+#  dummy head -> node from the longer/equal-length list -> ...
+#  head -> (sum, dummy head)
+#  dummy head -> head
+#  sum = 0
+#********************************************************************************************************************
+#  Step 7: while either list still remains; list length > 0
+#********************************************************************************************************************
+
         while l1_length and l2_length:
             sum1 = 0
 #   if length of list 1 >= list 2
@@ -148,6 +164,16 @@ class Solution:
 #   sum = 0
 #   while current exists
         carry = 0
+
+            #  the last current node will contain the value of 0, which will handle any last carry
+            #  i.e. if the last two nodes both contain the value of 9
+            #  current->val = 18
+            #  carry = 0
+            #  sum = 18
+            #  current->val = 0
+            #  carry = 1
+            #  sum = 1
+            #  Number = 18 
         while current:
 
 #   NOTE:   SET SUM TO CARRY AND CURRENT.VAL

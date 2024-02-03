@@ -1,14 +1,27 @@
 
 '''
  *  Programmer:                     Jeff C. Cheng
- *  Last modified:                  11:19PM 1-31-2024
+ *  Last modified:                  08:08AM 02-02-2024
  *  Problem:                        Number Of Bits Needed A To B (Zero)
+ * @param {Solution} self
+ * @param {Integer} number1
+ * @param {Integer} number1
+ * @return {Integer}
 '''
 
 class Solution:
     def number_of_bits_needed_a_to_b(self, number1, number2):
+
+#********************************************************************************************************************
+#  Step 1: XOR the two numbers to get a number of their differences 
+#********************************************************************************************************************
+
         result = number1 ^ number2
         numberOfBits = 0
+
+#********************************************************************************************************************
+#  Step 2: calculate the number of bits where the two numbers are different
+#********************************************************************************************************************
 
         while result > 0:
             numberOfBits += (result & 1)

@@ -1,7 +1,7 @@
 
 '''
  *  Programmer:                     Jeff C. Cheng
- *  Last modified:                  7:15PM 1-23-2024
+ *  Last modified:                  09:06PM 02-01-2024
  *  Problem:                        2. Add Two Numbers (Medium)
  *  Reference:                      https://leetcode.com/problems/add-two-numbers/description/
                                     https://leetcode.com/problems/add-two-numbers/solutions/1340/a-summary-about-how-to-solve-linked-list-problem-c/
@@ -9,6 +9,10 @@
                                     KNOW HOW LISTNODE IS DEFINED
                                     ESPECIALL DEF __INIT__:  SELF && DEFAULT VALUES
                                     HOW CARRY IS PROPOGATED W/O BEING SAVED IN NODES                          
+ * @param {Solution} self
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
 '''
 
 # 2. Add Two Numbers
@@ -51,14 +55,18 @@
 # 9.4M
 # Acceptance Rate
 # 41.1%
-    
-# Definition for singly-linked list.
+
+#********************************************************************************************************************
+#  Step 1: define node
+#********************************************************************************************************************
+
 class ListNode:
     #   used to initialize object of a class
     #   a.k.a. the constructor
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
+
 class Solution:
     def addTwoNumbers(self, l1, l2):
         #   non-negative numbers
@@ -71,27 +79,59 @@ class Solution:
         #   since the list is in reversed order, 
         #   there is no matching the nodes problems
         
-#   create dummy head
-#   create current pointer
+#********************************************************************************************************************
+#  Step 2: create dummy head and current for the new list
+#********************************************************************************************************************
+
         dummyHead = ListNode()
         current = dummyHead
 
 #   while linked list 1 or linked list 2 or carry exists
         carry = 0
+        sum1 = 0
+
+#  l1      ->  node 1                  ->  node 2                          ->  node 3                          -> ...
+#  l2      ->  node 1                  ->  node 2                          ->  node 3                          -> ...
+#  current ->  (carry(0) + node 1 x 2) ->  (carry(node1 x 2) + node 2 x 2) ->  (carry(node2 x 2) + node 3 x 2) -> ...   
+#  sum = carry
+#********************************************************************************************************************
+#  Step 3: while either list remains or carry is 1
+#********************************************************************************************************************
+
         while l1 or l2 or carry:
 #   set sum to carry
+            
+#********************************************************************************************************************
+#  Step 4: carry is first added to the sum
+#********************************************************************************************************************
+
             sum1 = carry
 
 #   add linked list 1 node value to sum & advance list
+            
+#********************************************************************************************************************
+#  Step 5: add node value to the sum, if list 1 exists; advance the list
+#********************************************************************************************************************
+
             if l1:
                 sum1 += l1.val
                 l1 = l1.next
 #   add linked list 2 node value to sum & advance list
+                
+#********************************************************************************************************************
+#  Step 6: add node value to the sum, if list 2 exists; advance the list
+#********************************************************************************************************************
+
             if l2:
                 sum1 += l2.val
                 l2 = l2.next
 
 #   determine carry value
+                
+#********************************************************************************************************************
+#  Step 7: calculate node value and carry
+#********************************************************************************************************************
+
             if sum1 >= 10:
                 sum1 %= 10
                 carry = 1
@@ -99,10 +139,20 @@ class Solution:
                 carry = 0
 
 #   add node value with sum to current & advance list
+                
+#********************************************************************************************************************
+#  Step 8: add the new node to the new list; advance the list
+#********************************************************************************************************************
+
             current.next = ListNode( sum1 )
             current = current.next
 
 #   return dummy head next
+            
+#********************************************************************************************************************
+#  Step 9: return the result
+#********************************************************************************************************************
+
         return dummyHead.next
 
 #   REMEMBER TO CALL CONSTRUCTOR  
@@ -117,6 +167,8 @@ result = solution.addTwoNumbers(l1, l2)
 multiplier = 1
 number = 0
 while result:
+
+#  multiplier is used to place the sum of the two nodes at the correct significant place
     number += result.val*multiplier
     multiplier *= 10
     result = result.next

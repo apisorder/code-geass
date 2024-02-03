@@ -8,6 +8,7 @@
 #   a = result[0]; b = result[1];
 
 #   in Python
+#   not new keyword used
 #   def swap(a, b):
 #       return b, a
 #   a, b, = swap(a, b)

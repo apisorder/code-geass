@@ -1,15 +1,27 @@
 
 //
 //  *  Programmer:                     Jeff C. Cheng
-//  *  Last modified:                  11:31PM 1-31-2024
+//  *  Last modified:                  08:08AM 02-02-2024
 //  *  Problem:                        Number Of Bits A To B (Zero)
+// @param {Integer} number1
+// @param {Integer} number2
+// @return {Integer}
 //
 
 let numberOfBitsAToB = (number1, number2) =>
 {
+
+//********************************************************************************************************************
+//  Step 1: XOR the two numbers to get a number of their differences 
+//********************************************************************************************************************
+        
     let result = number1 ^ number2;
     let numberOfBits = 0;
 
+//********************************************************************************************************************
+//  Step 2: calculate the number of bits where the two numbers are different
+//********************************************************************************************************************
+    
     while (result > 0) 
     {
         numberOfBits += (result & 1);

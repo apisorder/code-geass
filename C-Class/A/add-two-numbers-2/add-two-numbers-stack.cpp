@@ -1,7 +1,7 @@
 
 //
 //  *  Programmer:                     Jeff C. Cheng
-//  *  Last modified:                  11:50AM 1-26-2024
+//  *  Last modified:                  05:53PM 02-01-2024
 //  *  Problem:                        445. Add Two Numbers II (Medium)
 //  *  Reference:                      https://leetcode.com/problems/add-two-numbers-ii/description/
 //  NOTE:                              
@@ -17,6 +17,9 @@
 //                                     head = ListNode( carry, dummyHead )
 //  NOTE:                                  HEAD = LISTNODE( CARRY, LISTNODE(SUM)) IS WRONG
 //                                     dummyHead = head
+// *@param {Pointer to ListNode} l1
+// *@param {Pointer to ListNode} l2
+// *@return {Pointer to ListNode}
 //
 
 // 445. Add Two Numbers II
@@ -68,6 +71,10 @@
 #include <iostream>
 #include <stack>
 
+//********************************************************************************************************************
+//  Step 1: define node
+//********************************************************************************************************************
+
 struct ListNode
 {
     int val;
@@ -81,42 +88,97 @@ struct ListNode
 class Solution
 {
     public:
+
+//********************************************************************************************************************
+//  Step 2: define helper function to push list onto the stack, effectively reversing the list
+//********************************************************************************************************************
+
+        // @param {Pointer to ListNode} l
+        // @return {std::stack}
         std::stack<int> listToStack(ListNode *l)
         {
             std::stack<int> stack;
 
             while (l != nullptr)
             {
+
+//********************************************************************************************************************
+//  Step 3: push list node onto the stack; advance the list
+//********************************************************************************************************************
+
                 stack.push(l->val);
                 l = l->next;
             }
+
+//********************************************************************************************************************
+//  Step 4: return result
+//********************************************************************************************************************
+
             return stack;
         }
 
         ListNode* addTwoNumbers(ListNode *l1, ListNode *l2)
         {
+
+//********************************************************************************************************************
+//  Step 5: create dummy head for the new list
+//********************************************************************************************************************
+
+            ListNode *dummyHead = new ListNode(0);
+
+//********************************************************************************************************************
+//  Step 6: push the lists onto the stack for easier processing
+//********************************************************************************************************************
+
             std::stack<int> stack1 = listToStack(l1);
             std::stack<int> stack2 = listToStack(l2);
 
-            ListNode *dummyHead = new ListNode(0);        
 
             int sum = 0;
             int carry = 0;
+            ListNode *head;
+
+//  stack 1      ->  node x-1                  ->  node x-2                          ->  node x-3                          -> ...
+//  stack 2      ->  node x-1                  ->  node x-2                          ->  node x-3
+//  sum = dummy head value
+//  head -> carry; dummy head val = (node x-1 x 2)
+//  dummy head -> head   
+//********************************************************************************************************************
+//  Step 7: while either stack remains
+//********************************************************************************************************************
 
             while (!stack1.empty() || !stack2.empty())
             {
+
+//********************************************************************************************************************
+//  Step 8: dummy head value is first added to the sum
+//********************************************************************************************************************
+
                 sum = dummyHead->val;
+
+//********************************************************************************************************************
+//  Step 9: pop node from stack 1 and add value to the sum, if stack not empty
+//********************************************************************************************************************
 
                 if (!stack1.empty())
                 {
                     sum += stack1.top();
                     stack1.pop();
                 }
+
+//********************************************************************************************************************
+//  Step 10:    pop node from stack 2 and add value to the sum, if stacj not empty
+//********************************************************************************************************************
+
                 if (!stack2.empty())
                 {
                     sum += stack2.top();
                     stack2.pop();
                 }
+
+//********************************************************************************************************************
+//  Step 11:    calculate node value and carry
+//********************************************************************************************************************
 
                 if (sum >= 10)
                 {
@@ -128,12 +190,31 @@ class Solution
                     carry = 0;
                 }
 
+//********************************************************************************************************************
+//  Step 12:    assign sum to dummy head value
+//********************************************************************************************************************
+
                 dummyHead->val = sum;
-                ListNode *head = new ListNode(carry, dummyHead);
+
+//********************************************************************************************************************
+//  Step 13:    add the new node to the new list; advance the list
+//********************************************************************************************************************
+
+                head = new ListNode(carry, dummyHead);
                 dummyHead = head;
             }         
+
+//********************************************************************************************************************
+//  Step 14:    depending on dummy head value, return the appropriate node value
+//********************************************************************************************************************
+
             if (dummyHead->val == 0)
             {
+
+//********************************************************************************************************************
+//  Step 15:    prevent memory leak, if needed
+//********************************************************************************************************************
+
                 ListNode* result = dummyHead->next;
                 delete dummyHead;
                 return result;
@@ -155,17 +236,16 @@ int main()
 
     Solution solution;
 
-//  not ListNode *l1
-//  not ListNode *l2
-    ListNode l1 = ListNode(3, new ListNode(4, new ListNode(2)));
-    ListNode l2 = ListNode(4, new ListNode(6, new ListNode(5)));
+    ListNode *l1 = new ListNode(3, new ListNode(4, new ListNode(2)));
+    ListNode *l2 = new ListNode(4, new ListNode(6, new ListNode(5)));
     
     ListNode *result;
-    result = solution.addTwoNumbers(&l1, &l2);
+    result = solution.addTwoNumbers(l1, l2);
 
     int number = 0;
     while (result != nullptr)
     {
+        //  shift the entire number one significant digit to the left before adding the next node value
         number = number*10 + result->val;
         result = result->next;
     } 
