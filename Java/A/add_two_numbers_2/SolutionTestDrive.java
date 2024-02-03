@@ -80,7 +80,7 @@ class Solution
 
     // @param {ListNode} l
     // @return {Integer}
-    int listLength(ListNode l)
+    private int listLength(ListNode l)
     {
         int length = 0;
 
@@ -107,7 +107,7 @@ class Solution
 
     // @param {ListNode} l
     // @return {Stack<Integer> stack}
-    Stack<Integer> listToStack(ListNode l)
+    private Stack<Integer> listToStack(ListNode l)
     {
         Stack<Integer> stack = new Stack<Integer>();
 
@@ -134,7 +134,7 @@ class Solution
 
     // @param {ListNode} l
     // @return {ListNode}
-    ListNode reverseList(ListNode l)
+    private ListNode reverseList(ListNode l)
     {
 
 //********************************************************************************************************************
@@ -159,7 +159,7 @@ class Solution
         return prev;
     }
 
-    ListNode addTwoNumbers(ListNode l1, ListNode l2)
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2)
     {
 
 //********************************************************************************************************************
@@ -285,7 +285,7 @@ class Solution
         }
     }
 
-    ListNode addTwoNumbersStack(ListNode l1, ListNode l2)
+    public ListNode addTwoNumbersStack(ListNode l1, ListNode l2)
     {
 
 //********************************************************************************************************************
@@ -368,7 +368,7 @@ class Solution
         }
     }
 
-    ListNode addTwoNumbersReverse(ListNode l1, ListNode l2)
+    public ListNode addTwoNumbersReverse(ListNode l1, ListNode l2)
     {
 
 //********************************************************************************************************************

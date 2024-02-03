@@ -87,7 +87,7 @@ struct ListNode
 
 class Solution
 {
-    public:
+    private:
 
 //********************************************************************************************************************
 //  Step 2: define helper function to push list onto the stack, effectively reversing the list
@@ -117,6 +117,8 @@ class Solution
             return stack;
         }
 
+    public:
+    
         ListNode* addTwoNumbers(ListNode *l1, ListNode *l2)
         {
 

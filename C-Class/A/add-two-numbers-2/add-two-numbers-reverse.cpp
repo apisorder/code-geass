@@ -75,7 +75,7 @@ struct ListNode
 
 class Solution
 {
-    public:
+    private:
 
 //********************************************************************************************************************
 //  Step 2: define helper function to reverse the list
@@ -123,6 +123,8 @@ class Solution
             return previous;
         }
 
+    public:
+    
         ListNode* addTwoNumbers(ListNode *l1, ListNode *l2)
         {
 

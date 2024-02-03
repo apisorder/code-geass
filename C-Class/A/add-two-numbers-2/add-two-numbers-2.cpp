@@ -86,7 +86,7 @@ struct ListNode
 
 class Solution
 {
-    public:
+    private:
 
 //********************************************************************************************************************
 //  Step 2: define helper function to calculate list length
@@ -116,6 +116,8 @@ class Solution
             return length;
         }
 
+    public:
+    
         ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
         {
 
