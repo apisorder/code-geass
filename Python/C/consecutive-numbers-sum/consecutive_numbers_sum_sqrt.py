@@ -1,7 +1,7 @@
 
 '''
  *  Programmer:                     Jeff C. Cheng
- *  Last modified:                  8:22PM 1-4-2024
+ *  Last modified:                  07:04PM 02-04-2024
  *  Problem:                        829. Consecutive Numbers Sum (Hard)
  *  Reference:                      https://leetcode.com/problems/consecutive-numbers-sum/description/
                                     https://leetcode.com/problems/consecutive-numbers-sum/solutions/129015/5-lines-c-solution-with-detailed-mathematical-explanation/
@@ -49,6 +49,56 @@
 import math
 class Solution:
     def consecutiveNumbersSum( self, n ):
+    #   a number can be written as a sequence of consecutive numbers
+    #   n = x + (x+1) + (x+2) + (x+3) + ... + (x+k-1) -> k numbers
+    #   n = kx + (1+2+3+...+k-1) = kx + k(k-1)/2
+    #   kx = n - k(k-1)/2 -> both sides multiples of k i.e. kx % k == 0 and (n - k(k-1)/2) %k == 0
+    #   since k > 0 and x > 0, n - k(k-1)/2 > 0
+    #   n - k(k-1)/2 > 0
+    #   2n > k(k-1)
+    #   so approximately 2n > k**2
+    #   or k < sqrt(2n)
+    #   since it's a sequence, k >= 2
+    #   however, since the question expects the number itself
+    #   as a sequence, we will start the count at 1
+        # numberOfSequences = 1
+        # k = 2
+        # while k < math.sqrt(2*n):
+        #     if (n - k*(k-1)//2) % k == 0:
+        #         numberOfSequences += 1
+        #     k += 1
+
+        # return numberOfSequences
+
+        numOfWays = 1
+        for k in range(2, int(math.sqrt(2*n))+1):
+            if (n - k*(k-1)//2) % k == 0:
+                numOfWays += 1
+
+        return numOfWays
+
+solution = Solution()
+# Example 1:
+
+# Input: n = 5
+# Output: 2
+
+# Example 2:
+# Input: n = 9
+# Output: 3
+
+#  Example 3:
+# Input: n = 15
+# Output: 4
+
+number1 = 5
+number2 = 9 
+number3 = 15
+
+print(solution.consecutiveNumbersSum(number1))
+print(solution.consecutiveNumbersSum(number2))
+print(solution.consecutiveNumbersSum(number3))
+
 #   a number can be written as the sum of consecutive number
 #   this sequence is unique, because the sum will be smaller
 #   if the starting number is smaller
@@ -70,7 +120,6 @@ class Solution:
 #   or k < sqrt(2n)
         
 #   set number of solutions to 1
-        numberOfSolutions = 1
 
 #   start at two, because we can always write n as a sequence of 1, which is itself
 #
@@ -78,17 +127,12 @@ class Solution:
 #   because it considers N as being written as N itself. It's confusing 
 #   since they ask for sum of consecutive integers which implies at least 2 numbers. 
 #   But to please OJ, we should start count from 1.
-        k = 2
 
 #   ESSENTIALLY, we can construct a sum of N using k terms starting from x
 
 #   while k < sqrt(2n)
-        while k < math.sqrt( 2*n ):
+
 #   if EQU2 is true
 #   number of solution increments
-            if (n - k*(k-1)//2) % k == 0:
-                numberOfSolutions += 1
 #   increments k
-            k += 1
 #   return number of solutions
-        return numberOfSolutions
