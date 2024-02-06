@@ -1,7 +1,7 @@
 
 //
 // *  Programmer:                     Jeff C. Cheng
-// *  Last modified:                  8:22PM 1-4-2024
+// *  Last modified:                  10:28PM 02-05-2024
 // *  Problem:                        829. Consecutive Numbers Sum (Hard)
 // *  Reference:                      https://leetcode.com/problems/consecutive-numbers-sum/description/
 //                                    https://leetcode.com/problems/consecutive-numbers-sum/solutions/129015/5-lines-c-solution-with-detailed-mathematical-explanation/
@@ -51,19 +51,90 @@
 // Acceptance Rate
 // 41.8%
 
-import java.lang.Math;
+// import java.lang.Math;
 
+// class Solution {
+//     public int consecutiveNumbersSum(int n) 
+//     {
+//         int numOfWays = 1;
+
+//         for (int k = 2; k < Math.sqrt(2*n); k++)
+//         {
+//             if ((n - k*(k-1)/2) % k == 0)
+//             {
+//                 numOfWays += 1;
+//             }
+//         }
+//         return numOfWays;
+//     }
+// }
+
+import java.lang.Math;
 class Solution {
-    public int consecutiveNumbersSum(int n) {
+    public int consecutiveNumbersSum(int n) 
+    {
+
+//********************************************************************************************************************
+//  Step 1: the number itself is a sequence of k, where k = 1
+//********************************************************************************************************************
+        
         int numOfWays = 1;
 
+//********************************************************************************************************************
+//  Step 2: from k between 2 and square root of 2xn
+//********************************************************************************************************************
+        
         for (int k = 2; k < Math.sqrt(2*n); k++)
         {
-            if ((n - k*(k-1)/2) % k == 0)
+
+//********************************************************************************************************************
+//  Step 3: if the equation is a multiple of k
+//********************************************************************************************************************
+            
+            if ((n - k*(k-1)/2 ) % k == 0)
             {
+
+//********************************************************************************************************************
+//  Step 4: one more solution has been found
+//********************************************************************************************************************
+                
                 numOfWays += 1;
             }
         }
+
+//********************************************************************************************************************
+//  Step 5: return the result
+//********************************************************************************************************************
+        
         return numOfWays;
+    }
+}
+
+class SolutionTestDrive
+{
+    public static void main(String[] args)
+    {
+        Solution solution = new Solution();
+
+        //  Example 1:
+
+        //  Input: n = 5
+        //  Output: 2
+        
+        //  Example 2:
+        //  Input: n = 9
+        //  Output: 3
+        
+        //   Example 3:
+        //  Input: n = 15
+        //  Output: 4
+
+        int number1 = 5;
+        int number2 = 9;
+        int number3 = 15;
+        
+        System.out.println(solution.consecutiveNumbersSum(number1));
+        System.out.println(solution.consecutiveNumbersSum(number2));
+        System.out.println(solution.consecutiveNumbersSum(number3));
     }
 }

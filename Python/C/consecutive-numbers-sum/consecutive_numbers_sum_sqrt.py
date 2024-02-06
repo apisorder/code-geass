@@ -1,7 +1,7 @@
 
 '''
  *  Programmer:                     Jeff C. Cheng
- *  Last modified:                  07:04PM 02-04-2024
+ *  Last modified:                  10:28PM 02-05-2024
  *  Problem:                        829. Consecutive Numbers Sum (Hard)
  *  Reference:                      https://leetcode.com/problems/consecutive-numbers-sum/description/
                                     https://leetcode.com/problems/consecutive-numbers-sum/solutions/129015/5-lines-c-solution-with-detailed-mathematical-explanation/
@@ -46,9 +46,6 @@
 # Acceptance Rate
 # 41.7%
 
-import math
-class Solution:
-    def consecutiveNumbersSum( self, n ):
     #   a number can be written as a sequence of consecutive numbers
     #   n = x + (x+1) + (x+2) + (x+3) + ... + (x+k-1) -> k numbers
     #   n = kx + (1+2+3+...+k-1) = kx + k(k-1)/2
@@ -70,13 +67,52 @@ class Solution:
 
         # return numberOfSequences
 
+# import math
+# class Solution:
+#     def consecutiveNumbersSum( self, n ):
+
+#         numOfWays = 1
+#         for k in range(2, int(math.sqrt(2*n))+1):
+#             if (n - k*(k-1)//2) % k == 0:
+#                 numOfWays += 1
+
+#         return numOfWays
+
+
+import math
+class Solution:
+    def consecutiveNumbersSum(self, n: int) -> int:
+
+#********************************************************************************************************************
+#  Step 1: the number itself is a sequence of k, where k = 1
+#********************************************************************************************************************
+
         numOfWays = 1
+
+#********************************************************************************************************************
+#  Step 2: from k between 2 and square root of 2xn
+#********************************************************************************************************************
+
         for k in range(2, int(math.sqrt(2*n))+1):
+
+#********************************************************************************************************************
+#  Step 3: if the equation is a multiple of k
+#********************************************************************************************************************
+
             if (n - k*(k-1)//2) % k == 0:
+
+#********************************************************************************************************************
+#  Step 4: one more solution has been found
+#********************************************************************************************************************
+
                 numOfWays += 1
 
-        return numOfWays
+#********************************************************************************************************************
+#  Step 5: return the result
+#********************************************************************************************************************
 
+        return numOfWays
+    
 solution = Solution()
 # Example 1:
 
@@ -90,7 +126,6 @@ solution = Solution()
 #  Example 3:
 # Input: n = 15
 # Output: 4
-
 number1 = 5
 number2 = 9 
 number3 = 15
@@ -98,6 +133,7 @@ number3 = 15
 print(solution.consecutiveNumbersSum(number1))
 print(solution.consecutiveNumbersSum(number2))
 print(solution.consecutiveNumbersSum(number3))
+
 
 #   a number can be written as the sum of consecutive number
 #   this sequence is unique, because the sum will be smaller
