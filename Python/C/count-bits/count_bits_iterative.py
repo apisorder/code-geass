@@ -1,10 +1,13 @@
 
 '''
  *  Programmer:                     Jeff C. Cheng
- *  Last modified:                  08:40PM 02-04-2024
+ *  Last modified:                  10:24PM 02-07-2024
  *  Problem:                        338. Counting Bits (Easy)
  *  Reference:                      https://leetcode.com/problems/counting-bits/description/ 
                                     https://leetcode.com/problems/counting-bits/solutions/1808002/a-very-very-easy-to-go-explanation/
+ *@param {Solution} self
+ *@param {Integer} n
+ *@return {Array of Integer}                          
 '''
 
 # 338. Counting Bits
@@ -66,53 +69,28 @@ class Solution:
     def countBits(self, n):
 
 #********************************************************************************************************************
-#  Step 1: create helper function to count the ones in each number
+#  Step 1: create an array to store the number of bits for each number
 #********************************************************************************************************************
 
-        def countOnes(self, num, memo):
+        dp = [0] * (n+1)
 
 #********************************************************************************************************************
-#  Step 2: base case
+#  Step 2: iterate through each number
 #********************************************************************************************************************
 
-            if num == 0 or num == 1:
-                return num
-
-#********************************************************************************************************************
-#  Step 3: use cache to decrease time complexity
-#********************************************************************************************************************
-
-            if memo[num]:
-                return memo[num]
-
-#********************************************************************************************************************
-#  Step 4: not in the cache, so perform calculation based on whether the number is even or odd; put in cache; return
-#********************************************************************************************************************
-
-            if (num & 1) == 0:
-                memo[num] = countOnes(self, num >> 1, memo)
-            else:
-                memo[num] = 1 + countOnes(self, num >> 1, memo)
-            return memo[num]
-        
-#********************************************************************************************************************
-#  Step 5: create an array to store the number of bits for each number
-#********************************************************************************************************************
-
-        results = [0] * (n+1)
         for i in range(n+1):
 
 #********************************************************************************************************************
-#  Step 6: calculate the result
+#  Step 3: calculate each entry and store the result
 #********************************************************************************************************************
 
-            results[i] = countOnes(self, i, results)
+            dp[i] = dp[i >> 1] + i % 2
 
 #********************************************************************************************************************
-#  Step 7: return the result
+#  Step 4: return the result
 #********************************************************************************************************************
 
-        return results
+        return dp
     
 solution = Solution()
 num = 5

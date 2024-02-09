@@ -1,11 +1,12 @@
 
 //
 // *  Programmer:                     Jeff C. Cheng
-// *  Last modified:                  08:40PM 02-04-2024
+// *  Last modified:                  10:01PM 02-07-2024
 // *  Problem:                        338. Counting Bits (Easy)
 // *  Reference:                      https://leetcode.com/problems/counting-bits/description/ 
 //                                    https://leetcode.com/problems/counting-bits/solutions/1808002/a-very-very-easy-to-go-explanation/
-//
+// @param {Integer} n
+// @return {Array of Integer}
 
 // 338. Counting Bits
 // Solved
@@ -62,17 +63,32 @@
 
 import java.util.Arrays;
 
-class Solution {
+class Solution 
+{
+    public int[] countBits(int n)
+    {
+        int[] dp = new int[ n+1 ];
+
+        for (int i = 0; i <= n; i++)
+        {
+            dp[i] = dp[i >> 1] + (i % 2);
+        }
+            
+        return dp;
+    }
 
 //********************************************************************************************************************
-//  Step 1: create helper function to count the ones in each number
+//  Step 1 ALT: create helper function to count the ones in each number
 //********************************************************************************************************************
-    
+
+// @param {Integer} num
+// @param {Array of Integer} memo
+// @return {Array of Integer}
     int countOnes(int num, int[] memo)
     {
 
 //********************************************************************************************************************
-//  Step 2: base case
+//  Step 2 ALT: base case
 //********************************************************************************************************************
         
         if (num == 0 || num == 1)
@@ -81,7 +97,7 @@ class Solution {
         }
 
 //********************************************************************************************************************
-//  Step 3: use cache to decrease time complexity
+//  Step 3 ALT: use cache to decrease time complexity
 //********************************************************************************************************************
         
         if (memo[num] > 0)
@@ -90,7 +106,7 @@ class Solution {
         }
 
 //********************************************************************************************************************
-//  Step 4: not in the cache, so perform calculation based on whether the number is even or odd; put in cache; return
+//  Step 4 ALT: not in the cache, so perform calculation based on whether the number is even or odd; put in cache; return
 //********************************************************************************************************************
         
         if ((num & 1) == 0)
@@ -104,11 +120,13 @@ class Solution {
         return memo[num];
     }
 
-    public int[] countBits(int n) 
+// @param {Integer} n
+// @return {Array of Integer}
+    public int[] countBitsRecursive(int n) 
     {
 
 //********************************************************************************************************************
-//  Step 5: create an array to store the number of bits for each number
+//  Step 5 ALT: create an array to store the number of bits for each number
 //********************************************************************************************************************
         
         int[] results = new int[ n+1 ];
@@ -117,17 +135,17 @@ class Solution {
         {
 
 //********************************************************************************************************************
-//  Step 6: calculate the result
+//  Step 6 ALT: calculate the result
 //********************************************************************************************************************
             
             results[i] = countOnes(i, results);
         }
 
 //********************************************************************************************************************
-//  Step 7: return the result
+//  Step 7 ALT: return the result
 //********************************************************************************************************************
         
-        return results;    
+        return results;
     }
 }
 class SolutionTestDrive
@@ -137,8 +155,11 @@ class SolutionTestDrive
         Solution solution = new Solution();
 
         int input = 5;
-        int[] result = solution.countBits(input);
+        int[] result = solution.countBitsRecursive(input);
+
+        int [] result2 = solution.countBits((input));
 
         System.out.println(Arrays.toString(result));
+        System.out.println(Arrays.toString(result2));
     }
 };

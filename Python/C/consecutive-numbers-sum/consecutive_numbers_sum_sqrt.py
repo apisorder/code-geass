@@ -8,6 +8,10 @@
  NOTE:                              
                                     REMEMBER WHAT K MEANS
                                     REMEMBER WHAT RESULT SHOULD INIT TO 
+                                    REMEMBER TO CAST MATH.SQRT(2*N)
+ *@param {Solution} self
+ *@param {Integer} n
+ *@return {Integer}
 '''
 
 # 829. Consecutive Numbers Sum
@@ -81,7 +85,7 @@
 
 import math
 class Solution:
-    def consecutiveNumbersSum(self, n: int) -> int:
+    def consecutiveNumbersSum(self, n):
 
 #********************************************************************************************************************
 #  Step 1: the number itself is a sequence of k, where k = 1

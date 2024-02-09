@@ -9,6 +9,8 @@
 //                                    REMEMBER WHAT K MEANS
 //                                    REMEMBER WHAT RESULT SHOULD INIT TO 
 //
+// @param {Integer} n
+// @return {Integer}
 
 // 829. Consecutive Numbers Sum
 // Solved
