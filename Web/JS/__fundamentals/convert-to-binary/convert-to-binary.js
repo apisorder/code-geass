@@ -49,8 +49,8 @@ let converToBinary = (number) =>
 //  1   0   1   1   0   0   0
 //  0   0   1   0   1   0   0
 
-number1 = 88
-number2 = 20
+let number1 = 88;
+let number2 = 20;
 
 console.log(converToBinary(number1));
 console.log(converToBinary(number2));

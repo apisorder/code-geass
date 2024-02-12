@@ -22,9 +22,9 @@ let setKthBit = (number, kthBit) =>
 //  1   0   0   1   0   0   0
 //  0   0   1   0   1   0   0
 
-number1 = 72
-number2 = 20
-kthBit = 1
+let number1 = 72;
+let number2 = 20;
+let kthBit = 1;
 
 console.log("First number has value of " + number1 + ".");
 console.log("Second number has value of " + number2 + ".");

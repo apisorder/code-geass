@@ -22,9 +22,9 @@ let clearKthBit = (number, kthBit) =>
 //  1   0   1   1   0   0   0
 //  0   0   1   0   1   0   0
 
-number1 = 88
-number2 = 20
-kthBit = 4
+let number1 = 88;
+let number2 = 20;
+let kthBit = 4;
 
 console.log("First number has value of " + number1 + ".");
 console.log("Second number has value of " + number2 + ".");

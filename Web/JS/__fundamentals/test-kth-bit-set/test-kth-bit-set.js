@@ -22,10 +22,10 @@ let testKthBitSet = (number, kthBit) =>
 //  1   0   0   1   0   0   0
 //  0   0   1   0   1   0   0
 
-number1 = 72
-number2 = 20
-kthBit1 = 3
-kthBit2 = 6
+let number1 = 72;
+let number2 = 20;
+let kthBit1 = 3;
+let kthBit2 = 6;
 
 console.log("First number has value of " + number1 + ".");
 console.log("Its bit " + kthBit1 + " has the value of " + (testKthBitSet(number1, kthBit1) ? 1: 0)); 

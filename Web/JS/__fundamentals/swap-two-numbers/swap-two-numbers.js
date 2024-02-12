@@ -23,19 +23,19 @@ let swapTwoNumbers = (a, b) =>
     return [a, b]
 }
 
-let x = 11
-let y = 22
+let x = 11;
+let y = 22;
 
-console.log("Values before the function call")
-console.log("x =", x)
-console.log("y =", y)
+console.log("Values before the function call");
+console.log("x =", x);
+console.log("y =", y);
 
-let result = swapTwoNumbers(x, y)
-console.log("Values after the function call")
+let result = swapTwoNumbers(x, y);
+console.log("Values after the function call");
 
 //  assign each of the list element to a and b
-x = result[0]
-y = result[1]
-delete result
-console.log("x =", x)
-console.log("y =", y)
+x = result[0];
+y = result[1];
+delete result;
+console.log("x =", x);
+console.log("y =", y);

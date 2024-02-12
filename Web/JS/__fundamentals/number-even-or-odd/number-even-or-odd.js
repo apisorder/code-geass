@@ -24,7 +24,7 @@ let numberEvenOrOdd = ( number ) =>
     }
 } 
 
-x = 11
-y = 22
+let x = 11;
+let y = 22;
 console.log("First number has value of " + x + " and is "  + numberEvenOrOdd(x));
 console.log("Second number has value of " + y + " and is " + numberEvenOrOdd(y));
