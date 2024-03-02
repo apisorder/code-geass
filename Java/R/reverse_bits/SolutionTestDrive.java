@@ -6,7 +6,21 @@
 // *  Reference:                      https://leetcode.com/problems/reverse-bits/description/
 // @param {Integer} num
 // @return {Integer}
-// NOTE:                              LONG is needed instead of int
+// NOTE:                              The approach is to preserve the bits we want to swap with the mask
+//                                    Then shift the intermediate result to the place we want to swap from
+//                                    And then OR the result to complete the swap
+//                                    i.e.
+//                                    AAAABBBB
+//                                    =>
+//                                    intermediate result 1 = AAAABBBB & 0xffff0000
+//                                    intermediate result 2 = AAAABBBB & 0x0000ffff
+//                                    intermediate result 1 = (AAAABBBB & 0xffff0000) >> 16
+//                                    intermediate result 2 = (AAAABBBB & 0x0000ffff) << 16
+//                                    swap done = intermediate result 1 | intermediate result 2
+//                                    And then we swap within the swapped partition, i.e. 16 -> 8 -> 4 -> 2 -> 1
+//                                    For a total of 5 passes
+//
+//                                    LONG is needed instead of int
 //
 //                                    When we write number literals in Java, no matter whether 
 //                                    it’s within or outside the integer range, Java treats it 

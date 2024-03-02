@@ -6,6 +6,10 @@
  * @param {Solution} self
  * @param {Integer} number1
  * @return {Integer}
+ NOTE:                              This approach is faster with time complexity of O(number of set bits)
+                                    than time complexity of O(log n), where we have to iterate through
+                                    each and every bit of a number
+                                    This is because n & (n-1) always clears the rightmost set bit
 '''
 
 class Solution:

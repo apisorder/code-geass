@@ -1,38 +1,51 @@
 
+/*
+ *  Programmer:                     Jeff C. Cheng
+ *  Last modified:                  07:40AM 02-27-2024
+ *  Problem:                        argc, and argv (Zero)
+ * @param {Integer} argc, {String} argv
+ * @return {Integer}
+ */
+
+//  preprocessor directives
+
 #include <cstdlib>
+//  converting data types, random number generators, memory managment, searching, sorting, etc.
+
 #include <iostream>
+//  input and output operations
+
 #include <string>
+//  handle strings
+
 #include <vector>
+//  handle resizeable arrays
+
 #include <sstream>
+//  manipulate streams, or a series of characters
 
 int main(int argc, char** argv)
 {
     std::cout << "Hello World" << std::endl;
 
-    //  check if any arguments are passed
+    //  to compile & specify output file
+    //  g++ main.cpp -o main.exe
+    //  to execute
+    //  main.exe I Love C++
 
-    // If you compile the code into an executable program in the terminal
-    // g++ main.cpp
-    // And execute it : ./a.out I Love C++
-    // You'd see how to work with passed arguments
-    
-    // If no arguments are passed argc has a value of 1
-    // We check that with if to skip printing values if none were passed
+    //  check if any arguments are passed
     if (argc != 1)
     {
-
-    // << : Stream insertion operator which puts the string
-    // into the cout stream to display it
         std::cout << "You entered " << argc <<
             " arguments\n";
     }
 
+    //  cycle through the array of arguments
     for ( int i = 0; i < argc; ++i )
     {
         std::cout << argv[i] << "\n";
     }
 
-    // When 0 is returned that signals that the program executed without 
-    // an error and -1 signals an error occurred 
+    //  0 signfies successful program execution
     return 0;
 }
