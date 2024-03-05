@@ -37,7 +37,8 @@ choices = """
             2 TC = O(log (N))
             3 TC = O( log**2 (N))
             4 TC = O(N)
-            5 TC
+            5 TC = O(N x log(N))
+            6 TC = O(N * sqrt (N))
 """
 
 hint = """
@@ -61,12 +62,10 @@ while True:
 explanation = """
             Correct!
             It might seem at the first look that the program is O(log N). 
-However, the last case 
-
-return searchNumOccurrence(V, k, start, mid - 1) + 1 + searchNumOccurrence(V, k, mid + 1, end);
-
-
-is the bottleneck step. 
+            However, the last case 
+            return searchNumOccurrence(V, k, start, mid - 1) 
+                + 1 + searchNumOccurrence(V, k, mid + 1, end);
+            is the bottleneck step. 
 Assuming all the values in the array are the same, we get the following relation : 
 
 T(N) = 2 * T(N/2) + constant
