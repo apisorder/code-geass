@@ -1,7 +1,7 @@
 
 '''
  *  Programmer:                     Jeff C. Cheng
- *  Last modified:                  09:40AM 02-29-2024
+ *  Last modified:                  07:08PM 03-11-2024
  *  Problem:                        TC-Primer-4 (Zero)
  * @param {None}
  * @return {None}
@@ -27,7 +27,7 @@ hint = """
 """
 
 answer = -1
-correct_answer = 1
+correct_answer = 2
 
 while True:
     print(question)

@@ -1,16 +1,21 @@
 
+//  tell java interpreter to make this class available to all other classes
 public class JavaTutorial_1
+//  class is a blueprint for our program
 {
     //  class variable, accessible to all other varaiables and methods within the class
     static String randomString = "a random string";
 
     //  varaible that will always stay the same; or constant
     static final double PINUM = 3.141529;
-
     // static -> only a class can call it
+    
     public static void main(String[] args)
+    //  main function is required in every program we will ever write
     //  any main function must accept an array of String objects
     {
+        System.out.println( "Hello World" );
+        
         //  declaration statement
         int integerOne = 22;
         //  expression statement

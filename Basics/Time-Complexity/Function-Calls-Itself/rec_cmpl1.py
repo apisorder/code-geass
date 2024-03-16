@@ -1,13 +1,15 @@
 
 '''
  *  Programmer:                     Jeff C. Cheng
- *  Last modified:                  09:26AM 02-29-2024
+ *  Last modified:                  01:56PM 03-10-2024
  *  Problem:                        TC-Primer-1 (Zero)
  * @param {None}
  * @return {None}
 '''
 
 question = """
+            What is the worst case time complexity of the following code :
+            
             V is sorted 
             V.size() = N
             The function is initially called as searchNumOccurrence(V, k, 0, N-1)
@@ -66,21 +68,15 @@ explanation = """
             return searchNumOccurrence(V, k, start, mid - 1) 
                 + 1 + searchNumOccurrence(V, k, mid + 1, end);
             is the bottleneck step. 
-Assuming all the values in the array are the same, we get the following relation : 
 
-T(N) = 2 * T(N/2) + constant
-
-     = 4 * T(N/4) + constant     ( 2 * constant = another constant ) 
-
-     = 8 * T(N/8) + constant 
-
-     …
-
-     = N * T(N/N) + constant 
-
-     = N + constant 
-
-     = O(N)
+            Assuming all the values in the array are the same, we get the following relation : 
+            T(N) = 2 * T(N/2) + constant
+            = 4 * T(N/4) + constant     ( 2 * constant = another constant ) 
+            = 8 * T(N/8) + constant 
+            …
+            = N * T(N/N) + constant 
+            = N + constant 
+            = O(N)
 """
 
 print(explanation)
