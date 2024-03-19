@@ -1,21 +1,93 @@
 
 //
 //  *  Programmer:                     Jeff C. Cheng
-//  *  Last modified:                  8:50PM 02-01-2024
+//  *  Last modified:                  06:59PM 03-18-2024
 //  *  Problem:                        2. Add Two Numbers (Medium)
 //  *  Reference:                      https://leetcode.com/problems/add-two-numbers/description/
 //                                     https://leetcode.com/problems/add-two-numbers/solutions/1340/a-summary-about-how-to-solve-linked-list-problem-c/
-//  NOTE:
-//                                     KNOW HOW LISTNODE IS DEFINED, ESPECIALLY ?: PART
-//                                     HOW CARRY IS PROPOGATED W/O BEING SAVED IN NODES                          
-// @param {ListNode} l1
-// @param {ListNode} l2
-// @return {ListNode}
 //
-
-//********************************************************************************************************************
-//  Step 1: define node
-//********************************************************************************************************************
+//  @func addTwoNumbers
+//  @param {Pointer to ListNode} l1
+//  @param {Pointer to ListNode} l2
+//  @return {Pointer to ListNode}
+//
+//  @func printResults
+//  @param {Pointer to ListNode} l1ptr
+//  @param {Pointer to ListNode} l2ptr
+//  @param {Pointer to ListNode} resultptr
+//  @return {undefined}
+//
+//  2. Add Two Numbers
+//
+//  You are given two non-empty linked lists representing two non-negative integers. 
+//  The digits are stored in reverse order, and each of their nodes contains a single digit. 
+//  Add the two numbers and return the sum as a linked list.
+//
+//  You may assume the two numbers do not contain any leading zero, 
+//  except the number 0 itself.
+//
+//  Example 1:
+//  Input: l1 = [2,4,3], l2 = [5,6,4]
+//  Output: [7,0,8]
+//  Explanation: 342 + 465 = 807.
+//
+//  Example 2:
+//  Input: l1 = [0], l2 = [0]
+//  Output: [0]
+//
+//  Example 3:
+//  Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+//  Output: [8,9,9,9,0,0,0,1]
+//
+//  Constraints:
+//
+//  The number of nodes in each linked list is in the range [1, 100].
+//  0 <= Node.val <= 9
+//  It is guaranteed that the list represents a number that does not have leading zeros.
+//
+//  non-empty
+//  non-negative integers
+//  reverse order
+//
+//  NOTE:
+//  https://www.youtube.com/watch?v=wgFPrzTjm7s
+//
+//  Input:  ( 2 -> 4 -> 3 ) + ( 5 -> 6 -> 4 )
+//  Output: 7 -> 0 -> 8
+//  Explanation:    342 + 465 = 807
+//
+//         1 (carry)
+//         342
+//     +   465
+//   -------------------
+//         807
+//  a lot of edge cases
+//
+//  Edge Cases:
+//
+//  what if the two linked lists we are adding are of different sizes
+//  3342 + 465
+//
+//  start at the 1's the place
+//  then the 10's place
+//  etc.
+//
+//  edge case where the numbers are of different length
+//
+//  (5)->(6)->(4)->(X) if X assumed 0
+//  (2)->(4)->(3)->(3)
+//       1
+//  (7)->(0)->(8)->(3)
+//
+//  another edge case where the carry may be forgotten
+//
+//  7 + 8
+//
+//  carry = 1   7
+//  +           8
+//  _____________
+//             5
+//  you may forget put the 1 (carry) in the result
 
 function ListNode(val, next) 
 {
@@ -25,103 +97,79 @@ function ListNode(val, next)
 
 let addTwoNumbers = (l1, l2) => 
 {
-
-//********************************************************************************************************************
-//  Step 2: create dummy head and current for the new list
-//********************************************************************************************************************
-
-    let dummyHead = new ListNode(0);
+    let dummyHead = new ListNode();
     let current = dummyHead;
 
     let carry = 0;
-    let sum = 0;
-
-//  l1      ->  node 1                  ->  node 2                          ->  node 3                          -> ...
-//  l2      ->  node 1                  ->  node 2                          ->  node 3                          -> ...
-//  current ->  (carry(0) + node 1 x 2) ->  (carry(node1 x 2) + node 2 x 2) ->  (carry(node2 x 2) + node 3 x 3) -> ...   
-//  sum = carry
-//********************************************************************************************************************
-//  Step 3: while either list remains or carry is 1
-//********************************************************************************************************************
-
-    while (l1 !== null || l2 !== null || carry == 1)
+    while (l1 || l2 || carry)
     {
+        let val1 = l1 ? l1.val : 0;
+        let val2 = l2 ? l2.val : 0;
 
-//********************************************************************************************************************
-//  Step 4: carry is first added to the sum
-//********************************************************************************************************************
+        let val = val1 + val2 + carry;
 
-        sum = carry;
+        carry = Math.floor(val / 10);
+        val = val % 10;
 
-//********************************************************************************************************************
-//  Step 5: add node value to the sum, if list 1 exists; advance the list
-//********************************************************************************************************************
-
-        if (l1 !== null)
-        {
-            sum += l1.val;
-            l1 = l1.next;
-        }
-
-//********************************************************************************************************************
-//  Step 6: add node value to the sum, if list 2 exists; advance the list
-//********************************************************************************************************************
-
-        if (l2 !== null)
-        {
-            sum += l2.val;
-            l2 = l2.next;
-        }
-
-//********************************************************************************************************************
-//  Step 7: calculate node value and carry
-//********************************************************************************************************************
-
-        if (sum >= 10)
-        {
-            sum %= 10;
-            carry = 1;
-        }
-        else
-        {
-            carry = 0;
-        }
-
-//********************************************************************************************************************
-//  Step 8: add the new node to the new list; advance the list
-//********************************************************************************************************************
-
-        current.next = new ListNode(sum);
+        current.next = new ListNode(val);
         current = current.next;
+
+        l1 = l1 ? l1.next : null;
+        l2 = l2 ? l2.next : null;
     }
-
-//********************************************************************************************************************
-//  Step 9: return the result
-//********************************************************************************************************************
-
     return dummyHead.next;
 };
 
-// Test Case:
-// Input: l1 = [2,4,3], l2 = [5,6,4]
-// Output: [7,0,8]
-// Explanation: 342 + 465 = 807.
+let printResults = (l1ptr, l2ptr, resultptr) =>
+{
+    let result = "List 1 of [ ";
+    while (l1ptr != null)
+    {
+        result += " ( " + l1ptr.val + " ) ";
+        l1ptr = l1ptr.next;
+    }
+    result += " ] + List 2 of [ ";
+    while (l2ptr != null)
+    {
+        result += " ( " + l2ptr.val + " ) ";
+        l2ptr = l2ptr.next;
+    }
+    result += " ] = ";
+    console.log(result);
 
+    result = "Result List of [ ";
+    while (resultptr != null)
+    {
+        result += " ( " + resultptr.val + " ) ";
+        resultptr = resultptr.next;
+    }
+    result += " ] ";
+    console.log(result);
+    console.log();
+}
+
+
+//  Example 1:
+//  Input: l1 = [2,4,3], l2 = [5,6,4]
+//  Output: [7,0,8]
+//  Explanation: 342 + 465 = 807.    
 let l1 = new ListNode(2, new ListNode(4, new ListNode(3))); 
 let l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
 
-let result = addTwoNumbers(l1, l2);
+//  Example 2:
+//  Input: l1 = [0], l2 = [0]
+//  Output: [0]
+//  Explanation:  0 + 0 = 0.
+let l3 = new ListNode(0);
+let l4 = new ListNode(0);
 
-// console.log(result)
+//  Example 3:
+//  Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+//  Output: [8,9,9,9,0,0,0,1]
+//  Explanation:  99999999 + 9999 = 10009998
+let l5 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9)))))));
+let l6 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9))));
 
-let num = 0;    
-let multiplier = 1;
-
-// multiplier is used to place the sum of the two nodes at the correct significant placewhile (result !== null)
-while (result)
-{
-    num += result.val*multiplier;
-    result = result.next;
-    multiplier *= 10;
-}
-console.log(num)
+printResults(l1, l2, addTwoNumbers(l1, l2));
+printResults(l3, l4, addTwoNumbers(l3, l4));
+printResults(l5, l6, addTwoNumbers(l5, l6));

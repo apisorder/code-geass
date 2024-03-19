@@ -5,16 +5,13 @@
  *  Problem:                        561. Array Partition (Easy)
  *  Reference:                      https://leetcode.com/problems/array-partition/description/
  *
+ *  @param arrayPairSum
  *  @param { Solution } self
  *  @param { List of Integer } nums
  *  @return { Integer }
 '''
-
+#
 #   561. Array Partition
-#   Solved
-#   Easy
-#   Topics
-#   Companies
 #   Hint
 #   Given an integer array nums of 2n integers, group these integers into n pairs (a1, b1), (a2, b2), ..., (an, bn) 
 #   such that the sum of min(ai, bi) for all i is maximized. Return the maximized sum.
@@ -37,18 +34,6 @@
 #   1 <= n <= 104
 #   nums.length == 2 * n
 #   -104 <= nums[i] <= 104
-#   Seen this question in a real interview before?
-#   1/4
-#   Yes
-#   No
-#   Accepted
-#   452.4K
-#   Submissions
-#   577.6K
-#   Acceptance Rate
-#   78.3%
-#   Topics
-#   Companies
 #   Hint 1
 #   Obviously, brute force won't help here. Think of something else, take some example like 1,2,3,4.
 #   Hint 2
@@ -60,26 +45,13 @@
 
 class Solution:
     def arrayPairSum(self, nums):
-
-#********************************************************************************************************************
-#  Step 1:  sort the array
-#********************************************************************************************************************
-
-#********************************************************************************************************************
-#  Step 2: add all the smaller value of the each pair
-#********************************************************************************************************************
-
-#********************************************************************************************************************
-#  Step 3: return the result
-#********************************************************************************************************************
         return sum(sorted(nums)[::2])
 
 solution = Solution()
 
 arr1 = [2, 1, 4, 3]
 arr2 = [6,2,6,5,1,2]
-result1 = solution.arrayPairSum(arr1)
-result2 = solution.arrayPairSum(arr2)
 
-print( f"Maximized sum of array1 of {arr1} = {result1}")
-print( f"Maximized sum of array2 of {arr2} = {result2}")
+print( f"Maximized sum of array1 of {arr1} = {solution.arrayPairSum(arr1)}")
+print()
+print( f"Maximized sum of array2 of {arr2} = {solution.arrayPairSum(arr2)}")

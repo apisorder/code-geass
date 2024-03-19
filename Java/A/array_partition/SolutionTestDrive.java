@@ -5,6 +5,7 @@
  *  Problem:                        561. Array Partition (Easy)
  *  Reference:                      https://leetcode.com/problems/array-partition/description/
  *
+ *  @func arrayPairSum
  *  @param { List of Integer } nums
  *  @return { Integer }
 */
@@ -19,7 +20,6 @@
 //  such that the sum of min(ai, bi) for all i is maximized. Return the maximized sum.
 //
 //  Example 1:
-//
 //  Input: nums = [1,4,3,2]
 //  Output: 4
 //  Explanation: All possible pairings (ignoring the ordering of elements) are:
@@ -37,19 +37,6 @@
 //  1 <= n <= 104
 //  nums.length == 2 * n
 //  -104 <= nums[i] <= 104
-//  Seen this question in a real interview before?
-//  1/4
-//  Yes
-//  No
-//  Accepted
-//  452.3K
-//  Submissions
-//  577.4K
-//  Acceptance Rate
-//  78.3%
-//  Topics
-//  Companies
-//
 //  Hint 1
 //  Obviously, brute force won't help here. Think of something else, take some example like 1,2,3,4.
 //  Hint 2
@@ -65,28 +52,14 @@ class Solution
 {
     public int arrayPairSum( int[] nums )
     {
-
-        //********************************************************************************************************************
-        //  Step 1: sort the array
-        //********************************************************************************************************************
         Arrays.sort(nums);
-
-        //********************************************************************************************************************
-        //  Step 2: declare variable to store the sum
-        //********************************************************************************************************************
         int maximized_sum = 0;
 
-        //********************************************************************************************************************
-        //  Step 3: add all the smaller value of the each pair
-        //********************************************************************************************************************
         for ( int i = 0; i < nums.length; i += 2)
         {
             maximized_sum += nums[i];
         }
 
-        //********************************************************************************************************************
-        //  Step 4: return the result
-        //********************************************************************************************************************
         return maximized_sum;
     }
 }
@@ -100,10 +73,8 @@ class SolutionTestDrive
         int[] array1 = {3, 1, 2, 4};
         int[] array2 = {6,2,6,5,1,2};
 
-        int result1 = solution.arrayPairSum(array1);
-        int result2 = solution.arrayPairSum(array2);
-    
-        System.out.println("Maximized sum of array1 of " + Arrays.toString(array1) + " = " + result1);
-        System.out.println("Maximized sum of array2 of " + Arrays.toString(array2) + " = " + result2);
+        System.out.println("Maximized sum of array1 of " + Arrays.toString(array1) + " = " + solution.arrayPairSum(array1));
+        System.out.println();
+        System.out.println("Maximized sum of array2 of " + Arrays.toString(array2) + " = " + solution.arrayPairSum(array2));
     }
 }

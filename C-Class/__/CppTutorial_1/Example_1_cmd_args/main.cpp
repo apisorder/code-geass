@@ -3,8 +3,9 @@
  *  Programmer:                     Jeff C. Cheng
  *  Last modified:                  07:40AM 02-27-2024
  *  Problem:                        argc, and argv (Zero)
- * @param {Integer} argc, {String} argv
- * @return {Integer}
+ *  @param {Integer} argc
+ *  @{String} argv
+ *  @return {Integer}
  */
 
 //  preprocessor directives
@@ -24,14 +25,12 @@
 #include <sstream>
 //  manipulate streams, or a series of characters
 
+//  to execute
+//  main.exe I Love C++
 int main(int argc, char** argv)
 {
     std::cout << "Hello World" << std::endl;
 
-    //  to compile & specify output file
-    //  g++ main.cpp -o main.exe
-    //  to execute
-    //  main.exe I Love C++
 
     //  check if any arguments are passed
     if (argc != 1)

@@ -5,20 +5,16 @@
  *  Problem:                        561. Array Partition (Easy)
  *  Reference:                      https://leetcode.com/problems/array-partition/description/
  *
+ *  @func arrayPairSum
  *  @param { Array of Integer } nums
  *  @return { Integer }
 */
 //  561. Array Partition
-//  Solved
-//  Easy
-//  Topics
-//  Companies
 //  Hint
 //  Given an integer array nums of 2n integers, group these integers into n pairs (a1, b1), (a2, b2), ..., (an, bn) 
 //  such that the sum of min(ai, bi) for all i is maximized. Return the maximized sum.
 //
 //  Example 1:
-//
 //  Input: nums = [1,4,3,2]
 //  Output: 4
 //  Explanation: All possible pairings (ignoring the ordering of elements) are:
@@ -36,16 +32,6 @@
 //  1 <= n <= 104
 //  nums.length == 2 * n
 //  -104 <= nums[i] <= 104
-//  Seen this question in a real interview before?
-//  1/4
-//  Yes
-//  No
-//  Accepted
-//  461.8K
-//  Submissions
-//  588.3K
-//  Acceptance Rate
-//  78.5%
 
 let arrayPairSum = function(nums) 
 {
@@ -63,8 +49,7 @@ let arrayPairSum = function(nums)
 let arr1 = [1,4,3,2];
 let arr2 = [6,2,6,5,1,2];
 
-let result1 = arrayPairSum(arr1);
-let result2 = arrayPairSum(arr2);
-
-console.log( `Maximized sum of array1 of [${arr1}] = ${result1}`)
-console.log( `Maximized sum of array2 of [${arr2}] = ${result2}`)
+//  use ` (backticks) to place variables inside strings
+console.log( `Maximized sum of array1 of [${arr1}] = ${arrayPairSum(arr1)}`);
+console.log();
+console.log( `Maximized sum of array2 of [${arr2}] = ${arrayPairSum(arr2)}`);

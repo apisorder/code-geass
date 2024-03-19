@@ -1,10 +1,11 @@
 
 /*
- *  Programmer:                     Jeff C. Cheng
- *  Last modified:                  06:00PM 02-27-2024
- *  Problem:                        type ranges, and precision limits (Zero)
- * @param {Integer} argc {String} argv
- * @return {Integer}
+ *      Programmer:                     Jeff C. Cheng
+ *      Last modified:                  06:00PM 02-27-2024
+ *      Problem:                        type ranges, and precision limits (Zero)
+ *      @param {Integer} argc
+ *      @{String} argv
+ *      @return {Integer}
  */
 
 #include <cstdlib>
@@ -20,15 +21,14 @@ int g_iRandomNum = 0;
 //  global variable using Hungarian notation
 
 const double PI = 3.14159;
-//  constants
+//  constant
 
 int main(int argc, char** argv)
 {
     bool bMarried = true;
     
     char chMyGrade = 'A';
-    //  char stores 256 single characters represented 
-    //  by your keyboard
+    //  char stores 256 single characters represented by your keyboard
     
     unsigned short int u16Age = 43;
     //  unsigned (nonnegative only) short ints hold values from 0 to 65,535
@@ -65,10 +65,10 @@ int main(int argc, char** argv)
     double dbBigFloat = 1.11111111111111111111;
     double dbBigFloat2 = 1.11111111111111111111;
     double dbFloatSum = dbBigFloat + dbBigFloat2;
-    // doubles range from 2.22507e-308 to 1.79769e+308
+    //  doubles range from 2.22507e-308 to 1.79769e+308
 
     printf("FloatSum Precision : %.10f\n", FloatSum);
-
+    //  Float addition has 6 digits of precision
     printf("dbFloatSum Precision : %.20f\n", dbFloatSum);
     //  Double addition has 15 digits of precision
     
@@ -76,9 +76,9 @@ int main(int argc, char** argv)
     //  long doubles range from 3.3621e-4932 to 1.18973e+4932
     
     auto whatWillIBe = true;
-    //  You can have the compiler assign a type
+    //  You can have the compiler assign a type by using the keyword auto
     
-    //  SHOW DATA TYPES MIN & MAX VALUES
+    //  show data types, minimum and maximum values
     std::cout << "Min bool " << 
         std::numeric_limits<bool>::min() << "\n";
     std::cout << "Max bool " << 

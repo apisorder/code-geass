@@ -3,14 +3,14 @@
  *  Programmer:                     Jeff C. Cheng
  *  Last modified:                  10:29AM 02-27-2024
  *  Problem:                        getline, stoi, stod (Zero)
- * @param {None}
- * @return {Integer}
+ *  @param {None}
+ *  @return {Integer}
  */
 
 #include <cstdlib>
-//  This header defines several general purpose functions, including 
-//  dynamic memory management, random number generation, communication 
-//  with the environment, integer arithmetics, searching, sorting and converting.
+//  This header defines several general purpose functions, including dynamic memory management, 
+//  random number generation, communication with the environment, integer arithmetics, searching, 
+//  sorting and converting.
 //  https://cplusplus.com/reference/cstdlib/
 
 #include <iostream>
@@ -20,8 +20,7 @@
 
 int main() 
 {     
-    //  std::string sQuestion = "Enter Number 1 :: ";
-
+    //  same as std::string sQuestion = "Enter Number 1 :: ";
     std::string sQuestion1 ("Enter Number 1 : ");
     //  Create a string
 

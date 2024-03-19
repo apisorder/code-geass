@@ -5,7 +5,8 @@
 //  *  Problem:                        561. Array Partition (Easy)
 //  *  Reference:                      https://leetcode.com/problems/array-partition/description/
 //                                
-//  @param { Vector of Integer } nums 
+//  @func arrayPairSum
+//  @param { Reference to Vector of Integer } &nums 
 //  @return { Integer }
 //
 //  561. Array Partition
@@ -32,39 +33,23 @@
 //  -104 <= nums[i] <= 104
 
 #include <iostream>
-
 #include <vector>
-//  needed for std::vector; remember to declare vector as std::vector
-
 #include <algorithm>
-//  needed for std::sort; remember to write sort as std::sort
 
 class Solution 
 {
     public:
         int arrayPairSum(std::vector<int>& nums) 
         {
-            //********************************************************************************************************************
-            //  Step 1: sort the array
-            //********************************************************************************************************************
             std::sort(nums.begin(), nums.end());
 
-            //********************************************************************************************************************
-            //  Step 2: declare variable to store the sum
-            //********************************************************************************************************************
             int maximized_result = 0;
 
-            //********************************************************************************************************************
-            //  Step 3: add all the smaller value of the each pair
-            //********************************************************************************************************************
             for (int i = 0; i < nums.size(); i += 2)
             {
                 maximized_result += nums[i];
             }
 
-            //********************************************************************************************************************
-            //  Step 4: return the result
-            //********************************************************************************************************************
             return maximized_result;
         }
 };
@@ -81,9 +66,6 @@ int main()
 
     std::cout << "Maximized result of array1 of [";
 
-    //********************************************************************************************************************
-    //  printing the contents of the vector
-    //********************************************************************************************************************
     for (int i : array1 )
     //  same as for ( int i = 0; i < array1.size(); i++)
     {
@@ -91,12 +73,10 @@ int main()
         //  same as std::cout << array1[i] << ", ";
     }
 
-    std::cout << "] = " << result1 << " \n";
+    std::cout << "] = " << result1 << " \n\n";
+    
     std::cout << "Maximized result of array2 of [";
 
-    //********************************************************************************************************************
-    //  printing the contents of the vector
-    //********************************************************************************************************************
     for (int i : array2 )
     {
         std::cout << i << ", ";
