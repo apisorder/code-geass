@@ -4,11 +4,13 @@
  *  Last modified:                  06:02PM 03-15-2024
  *  Problem:                        561. Array Partition (Easy)
  *  Reference:                      https://leetcode.com/problems/array-partition/description/
+ *  Note:                           f-string
  *
- *  @param arrayPairSum
- *  @param { Solution } self
- *  @param { List of Integer } nums
- *  @return { Integer }
+ *  @param      arrayPairSum
+ *  @purpose    sum up the smaller element of each adjacent pair of elements in a sorted array
+ *  @param      { Solution } self
+ *  @param      { List of Integer } nums
+ *  @return     { Integer }
 '''
 #
 #   561. Array Partition

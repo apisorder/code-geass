@@ -4,19 +4,39 @@
  *  Last modified:                  04:27PM 03-18-2024
  *  Problem:                        2. Add Two Numbers (Medium)
  *  Reference:                      https://leetcode.com/problems/add-two-numbers/description/
- * 
- *  @func addTwoNumbers                                    
- *  @param {Solution} self
- *  @param {Pointer to ListNode} l1
- *  @param {Pointer to ListNode} l2
- *  @return {Pointer to ListNode}
+ *  Note:                           new constructor()
+ *                                  boolean conversion failures
  *
- *  @func printResults
- *  @param {Solution} self
- *  @param {Pointer to ListNode} l1ptr
- *  @param {Pointer to ListNode} l2ptr
- *  @param {Pointer to ListNode} resultptr
- *  @return {None}
+ *  @func       ListNode
+ *  @purpose    constructor for ListNode object
+ *  @param      { None }
+ *  @return     { None }
+ * 
+ *  @func       ListNode
+ *  @purpose    constructor for ListNode object
+ *  @param      { Integer } val
+ *  @return     { None }
+ *
+ *  @func       ListNode
+ *  @purpose    constructor for ListNode object
+ *  @param      { Integer } val
+ *  @param      { Pointer to ListNode } next
+ *  @return     { None }
+ * 
+ *  @func       addTwoNumbers                                    
+ *  @purpose    add two numbers stored in linked lists & return the result in a linked list
+ *  @param      { Solution } self
+ *  @param      { Pointer to ListNode } l1
+ *  @param      { Pointer to ListNode } l2
+ *  @return     { Pointer to ListNode }
+ *
+ *  @func       printResults
+ *  @purpose    print input lists and the result list
+ *  @param      { Solution } self
+ *  @param      { Pointer to ListNode } l1ptr
+ *  @param      { Pointer to ListNode } l2ptr
+ *  @param      { Pointer to ListNode } resultptr
+ *  @return     { None }
 */
 //
 //  2. Add Two Numbers
@@ -95,9 +115,18 @@ class ListNode
 {
     int val;
     ListNode next;
-    ListNode() {}
-    ListNode(int val) { this.val = val; }
-    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    ListNode() 
+    {
+    }
+    ListNode(int val) 
+    { 
+        this.val = val; 
+    }
+    ListNode(int val, ListNode next) 
+    { 
+        this.val = val; 
+        this.next = next; 
+    }
 }
 
 class Solution 

@@ -5,19 +5,30 @@
  *  Problem:                        2. Add Two Numbers (Medium)
  *  Reference:                      https:#leetcode.com/problems/add-two-numbers/description/
                                     https:#leetcode.com/problems/add-two-numbers/solutions/1340/a-summary-about-how-to-solve-linked-list-problem-c/                                                                        
+ *  Note:                           default values __init__(self, var=0, var=None)
+ *                                  NO new keyword, integer divsion == integer1 // integer2                                  
  *
- *  @func addTwoNumbers                                    
- *  @param {Solution} self
- *  @param {Pointer to ListNode} l1
- *  @param {Pointer to ListNode} l2
- *  @return {Pointer to ListNode}
+ *  @func       __init__
+ *  @purpose    constructor for ListNode object
+ *  @param      { ListNode } self
+ *  @param      { Integer } val
+ *  @param      { Pointer to ListNode } next
+ *  @return     { None }
  *
- *  @func printResults
- *  @param {Solution} self
- *  @param {Pointer to ListNode} l1ptr
- *  @param {Pointer to ListNode} l2ptr
- *  @param {Pointer to ListNode} resultptr
- *  @return {None}
+ *  @func       addTwoNumbers                                    
+ *  @purpose    add two numbers stored in linked lists & return the result in a linked list
+ *  @param      { Solution } self
+ *  @param      { Pointer to ListNode } l1
+ *  @param      { Pointer to ListNode } l2
+ *  @return     { Pointer to ListNode }
+ *
+ *  @func       printResults
+ *  @purpose    print input lists and the result list
+ *  @param      { Solution } self
+ *  @param      { Pointer to ListNode } l1ptr
+ *  @param      { Pointer to ListNode } l2ptr
+ *  @param      { Pointer to ListNode } resultptr
+ *  @return     { None }
 '''
 #
 #   2. Add Two Numbers

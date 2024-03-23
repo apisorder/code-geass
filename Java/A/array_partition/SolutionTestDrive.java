@@ -4,17 +4,15 @@
  *  Last modified:                  08:26PM 03-14-2024
  *  Problem:                        561. Array Partition (Easy)
  *  Reference:                      https://leetcode.com/problems/array-partition/description/
- *
- *  @func arrayPairSum
- *  @param { List of Integer } nums
- *  @return { Integer }
+ *  Note:                           Arrays.sort(), Arrays.toString() -> java.util.Arrays
+ * 
+ *  @func       arrayPairSum
+ *  @purpose    sum up the smaller element of each adjacent pair of elements in a sorted array
+ *  @param      { List of Integer } nums
+ *  @return     { Integer }
 */
 //
 //  561. Array Partition
-//  Solved
-//  Easy
-//  Topics
-//  Companies
 //  Hint
 //  Given an integer array nums of 2n integers, group these integers into n pairs (a1, b1), (a2, b2), ..., (an, bn) 
 //  such that the sum of min(ai, bi) for all i is maximized. Return the maximized sum.

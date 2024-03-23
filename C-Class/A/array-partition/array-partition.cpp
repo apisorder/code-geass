@@ -1,13 +1,16 @@
 
 //
-//  *  Programmer:                     Jeff C. Cheng
-//  *  Last modified:                  04:35AM 03-15-2024
-//  *  Problem:                        561. Array Partition (Easy)
-//  *  Reference:                      https://leetcode.com/problems/array-partition/description/
-//                                
-//  @func arrayPairSum
-//  @param { Reference to Vector of Integer } &nums 
-//  @return { Integer }
+//  *  Programmer:                      Jeff C. Cheng
+//  *  Last modified:                   04:35AM 03-15-2024
+//  *  Problem:                         561. Array Partition (Easy)
+//  *  Reference:                       https://leetcode.com/problems/array-partition/description/
+//  Note:                               sort(arr.begin(), arr.end()) -> #include <algorithm>                                   
+//                                      for (int i : array2 ) use i
+//
+//  @func       arrayPairSum
+//  @purpose    sum up the smaller element of each adjacent pair of elements in a sorted array
+//  @param      { Reference to Vector of Integer } &nums 
+//  @return     { Integer }
 //
 //  561. Array Partition
 //  Given an integer array nums of 2n integers, group these integers into n pairs (a1, b1), (a2, b2), ..., (an, bn) 
@@ -61,9 +64,6 @@ int main()
     std::vector<int> array1 = {1,4,3,2};
     std::vector<int> array2 = {6,2,6,5,1,2};
 
-    int result1 = solution.arrayPairSum(array1);
-    int result2 = solution.arrayPairSum(array2);
-
     std::cout << "Maximized result of array1 of [";
 
     for (int i : array1 )
@@ -73,7 +73,7 @@ int main()
         //  same as std::cout << array1[i] << ", ";
     }
 
-    std::cout << "] = " << result1 << " \n\n";
+    std::cout << "] = " << solution.arrayPairSum(array1) << " \n\n";
     
     std::cout << "Maximized result of array2 of [";
 
@@ -81,7 +81,7 @@ int main()
     {
         std::cout << i << ", ";
     }
-    std::cout << "] = " << result2 << " \n";
+    std::cout << "] = " << solution.arrayPairSum(array2) << " \n";
 
     return 0;
 }

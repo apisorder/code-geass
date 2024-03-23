@@ -1,21 +1,32 @@
 
 //
-//  *  Programmer:                     Jeff C. Cheng
-//  *  Last modified:                  06:59PM 03-18-2024
-//  *  Problem:                        2. Add Two Numbers (Medium)
-//  *  Reference:                      https://leetcode.com/problems/add-two-numbers/description/
-//                                     https://leetcode.com/problems/add-two-numbers/solutions/1340/a-summary-about-how-to-solve-linked-list-problem-c/
+//  *  Programmer:                      Jeff C. Cheng
+//  *  Last modified:                   06:59PM 03-18-2024
+//  *  Problem:                         2. Add Two Numbers (Medium)
+//  *  Reference:                       https://leetcode.com/problems/add-two-numbers/description/
+//                                      https://leetcode.com/problems/add-two-numbers/solutions/1340/a-summary-about-how-to-solve-linked-list-problem-c/
+//  Note:                               ternary operator: this.val = (val===undefined ? 0 : val)
+//                                      new constructor()
+//                                      integer division = Math.floor( integer1 / integer2 )
 //
-//  @func addTwoNumbers
-//  @param {Pointer to ListNode} l1
-//  @param {Pointer to ListNode} l2
-//  @return {Pointer to ListNode}
+//  @func       ListNode
+//  @purpose    constructor for a ListNode object
+//  @param      { Integer } val
+//  @param      { Pointer to ListNode } next
+//  @return     { undefined }
 //
-//  @func printResults
-//  @param {Pointer to ListNode} l1ptr
-//  @param {Pointer to ListNode} l2ptr
-//  @param {Pointer to ListNode} resultptr
-//  @return {undefined}
+//  @func       addTwoNumbers
+//  @purpose    add two numbers stored in linked lists & return the result in a linked list
+//  @param      { Pointer to ListNode } l1
+//  @param      { Pointer to ListNode } l2
+//  @return     { Pointer to ListNode }
+//
+//  @func       printResults
+//  @purpose    print input lists and the result list
+//  @param      { Pointer to ListNode } l1ptr
+//  @param      { Pointer to ListNode } l2ptr
+//  @param      { Pointer to ListNode } resultptr
+//  @return     { undefined }
 //
 //  2. Add Two Numbers
 //

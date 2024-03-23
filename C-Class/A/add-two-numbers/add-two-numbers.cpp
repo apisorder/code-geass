@@ -4,19 +4,39 @@
  *  Last modified:                  11:41AM 03-18-2024
  *  Problem:                        2. Add Two Numbers (Medium)
  *  Reference:                      https://leetcode.com/problems/add-two-numbers/description/
+ *  Note:                           initializer list func() : var(), var() {}
+ *                                  new constructor()
  *
- *  @func addTwoNumbers                                    
- *  @param {Solution} self
- *  @param {Pointer to ListNode} l1
- *  @param {Pointer to ListNode} l2
- *  @return {Pointer to ListNode}
+ *  @func       ListNode
+ *  @purpose    constructor for ListNode structure
+ *  @param      { None }
+ *  @return     { None }
  *
- *  @func printResults
- *  @param {Solution} self
- *  @param {Pointer to ListNode} l1ptr
- *  @param {Pointer to ListNode} l2ptr
- *  @param {Pointer to ListNode} resultptr
- *  @return {None}
+ *  @func       ListNode
+ *  @purpose    constructor for ListNode structure
+ *  @param      { Integer } x
+ *  @return     { None }
+ *
+ *  @func       ListNode
+ *  @purpose    constructor for ListNode structure
+ *  @param      { Integer } x
+ *  @param      { Pointer to ListNode } next
+ *  @return     { None }
+ *
+ *  @func       addTwoNumbers                                    
+ *  @purpose    add two numbers stored in linked lists & return the result in a linked list
+ *  @param      { Solution } self
+ *  @param      { Pointer to ListNode } l1
+ *  @param      { Pointer to ListNode } l2
+ *  @return     { Pointer to ListNode }
+ *
+ *  @func       printResults
+ *  @purpose    print input lists and the result list
+ *  @param      { Solution } self
+ *  @param      { Pointer to ListNode } l1ptr
+ *  @param      { Pointer to ListNode } l2ptr
+ *  @param      { Pointer to ListNode } resultptr
+ *  @return     { None }
  */
 //
 //  2. Add Two Numbers
@@ -97,9 +117,15 @@ struct ListNode
 {
     int val;
     ListNode* next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode* next) : val(x), next(next) {}
+    ListNode() : val(0), next(nullptr) 
+    {
+    }
+    ListNode(int x) : val(x), next(nullptr) 
+    {
+    }
+    ListNode(int x, ListNode* next) : val(x), next(next) 
+    {
+    }
 };
 
 class Solution 
@@ -156,7 +182,6 @@ class Solution
             }
             std::cout << " ] " << std::endl << std::endl;
         }
-
 };
 
 int main()

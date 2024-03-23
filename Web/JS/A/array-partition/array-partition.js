@@ -4,10 +4,13 @@
  *  Last modified:                  06:23PM 03-15-2024
  *  Problem:                        561. Array Partition (Easy)
  *  Reference:                      https://leetcode.com/problems/array-partition/description/
+ *  Note:                           arr.sort(function(a, b){ return a-b })
+ *                                  backticks
  *
- *  @func arrayPairSum
- *  @param { Array of Integer } nums
- *  @return { Integer }
+ *  @func       arrayPairSum
+ *  @purpose    sum up the smaller element of each adjacent pair of elements in a sorted array
+ *  @param      { Array of Integer } nums
+ *  @return     { Integer }
 */
 //  561. Array Partition
 //  Hint
