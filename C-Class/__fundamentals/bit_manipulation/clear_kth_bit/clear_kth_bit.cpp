@@ -1,11 +1,14 @@
 
 /*
  *  Programmer:                     Jeff C. Cheng
- *  Last modified:                  09:22PM 02-01-2024
+ *  Last modified:                  07:47PM 03-24-2024
  *  Problem:                        Clear Kth Bit (Zero)
- *  @param {Pointer to integer} number
- *  @param {integer} kth_bit
- *  @return {integer}
+ * 
+ *  @func           clear_kth_bit
+ *  @purpose        clear the kth bit of a number
+ *  @param          {Pointer to integer} number
+ *  @param          {integer} kth_bit
+ *  @return         {integer}
  */
 
 #include <iostream>
@@ -15,11 +18,6 @@ class Solution
     public:
         int clear_kth_bit(int *num, int kth_bit)
         {
-
-//********************************************************************************************************************
-//  Step 1: AND the number with 0 LEFT-SHIFTED k bits (shift 1 then negate that) 
-//********************************************************************************************************************
-
             return (*num & (~(1 << kth_bit)));
         }
 };
